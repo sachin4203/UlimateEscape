@@ -1,0 +1,478 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>misc</name>
+    <events>
+        <variable constant="0" name="powerup_bullets" sid="7893554282565309" static="0" type="number">20</variable>
+        <event-block sid="9778646715549698">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="9527344559797931" type="System">
+                    <param id="0" name="Interval (seconds)">random(1,5)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="4716417563032169" type="center_screen">
+                    <param id="0" name="Object">powerups_family</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-1" name="Set X" sid="650431867740973" type="powerups_family">
+                    <param id="0" name="X">random(LayoutWidth,LayoutWidth-00)</param>
+                </action>
+                <action id="-2" name="Set Y" sid="4426221131614332" type="powerups_family">
+                    <param id="0" name="Y">random(30,LayoutHeight-30)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block disabled="1" sid="7059153155175478">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="8306532480297127" type="projectiles_simple">
+                    <param id="0" name="Object">Sprite9</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="4331153320756058" type="projectiles_simple" />
+                <action id="-10" name="Set value" sid="6066163996274628" type="Sprite9">
+                    <param id="0" name="Instance variable">health</param>
+                    <param id="1" name="Value">sprite9.health-bullet_dmg</param>
+                </action>
+                <action id="-9" name="Set value" sid="3031972114841561" type="System">
+                    <param id="0" name="Variable">combo_counter</param>
+                    <param id="1" name="Value">combo_counter+1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block disabled="1" sid="3375397553876059">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="5136128566881492" type="rocket_simple">
+                    <param id="0" name="Object">Sprite9</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="4901921477151454" type="rocket_simple" />
+                <action id="-10" name="Set value" sid="2793212864399334" type="Sprite9">
+                    <param id="0" name="Instance variable">health</param>
+                    <param id="1" name="Value">sprite9.health-bullet_dmg</param>
+                </action>
+                <action id="-9" name="Set value" sid="4794844761469653" type="System">
+                    <param id="0" name="Variable">combo_counter</param>
+                    <param id="1" name="Value">combo_counter+1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block disabled="1" sid="273351508184867">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="583111028723739" type="System">
+                            <param id="0" name="Variable">boss_invincible</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="2950210255704844" type="System">
+                            <param id="0" name="Variable">combo_counter</param>
+                            <param id="1" name="Value">combo_counter+1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="3383857933766887" type="System">
+                            <param id="0" name="Variable">combo_cooldown</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block disabled="1" sid="2252435112193938">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="9944732699085106" type="Sprite9">
+                    <param id="0" name="Instance variable">health</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="4891862900374338" type="Sprite9" />
+            </actions>
+        </event-block>
+        <event-block sid="278385470425586">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="2369612292290611" type="projectiles_simple">
+                    <param id="0" name="Object">powerups_family</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="6683809734118107" type="projectiles_simple">
+                    <param id="0" name="Object">explosion_sprite</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-18" name="Rotate clockwise" sid="8136902393718146" type="explosion_sprite">
+                    <param id="0" name="Degrees">random(0,340)</param>
+                </action>
+                <action id="-9" name="Destroy" sid="1909252411637489" type="projectiles_simple" />
+                <action id="-9" name="Destroy" sid="6827879775778382" type="powerups_family" />
+            </actions>
+            <sub-events>
+                <event-block sid="9563820143879861">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="6613081140830275" type="System">
+                            <param id="0" name="Variable">boss_invincible</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="9" name="Set scale" sid="5724372243191483" type="sfx_bulled_collision">
+                            <param id="0" name="Scale">random(0.5,1.5)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9108049836999239">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="5290385558743534" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="9" name="Set scale" sid="7916611289971708" type="sfx_bulled_collision">
+                            <param id="0" name="Scale">random(0.2,0.6)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="8605796498371971">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="1954612080567405" type="rocket_simple">
+                    <param id="0" name="Object">powerups_family</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="2856557863789055" type="rocket_simple">
+                    <param id="0" name="Object">explosion_sprite</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-18" name="Rotate clockwise" sid="6909494493844342" type="explosion_sprite">
+                    <param id="0" name="Degrees">random(0,340)</param>
+                </action>
+                <action behavior="ScrollTo" id="0" name="Shake" sid="8982094882018845" type="center_screen">
+                    <param id="0" name="Magnitude">20</param>
+                    <param id="1" name="Duration">0.1</param>
+                    <param id="2" name="Mode">0</param>
+                </action>
+                <action id="-9" name="Destroy" sid="1326332437197632" type="rocket_simple" />
+                <action id="-9" name="Destroy" sid="9627357136712648" type="powerups_family" />
+            </actions>
+            <sub-events>
+                <event-block sid="8878718214763972">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="4312846664308744" type="System">
+                            <param id="0" name="Variable">boss_invincible</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="9" name="Set scale" sid="6728559132302378" type="explosion_sprite">
+                            <param id="0" name="Scale">random(0.5,1.5)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7070507559308413">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="6928339062866837" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="9" name="Set scale" sid="6289852204121897" type="explosion_sprite">
+                            <param id="0" name="Scale">random(0.2,0.6)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="1312240096927911">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="5958364455053268" type="projectiles_simple">
+                    <param id="0" name="Object">bullet_target</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="2875282660362963" type="projectiles_simple">
+                    <param id="0" name="Object">explosion_sprite</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-18" name="Rotate clockwise" sid="7713670172150203" type="explosion_sprite">
+                    <param id="0" name="Degrees">random(0,340)</param>
+                </action>
+                <action id="-9" name="Destroy" sid="9760649956741361" type="projectiles_simple" />
+                <action id="-9" name="Destroy" sid="8667950110972648" type="bullet_target" />
+            </actions>
+            <sub-events>
+                <event-block sid="7053050186222387">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="8975624269176297" type="System">
+                            <param id="0" name="Variable">boss_invincible</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="9" name="Set scale" sid="1032737168608398" type="sfx_bulled_collision">
+                            <param id="0" name="Scale">random(0.5,1.5)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8093281338768225">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="7225026163638254" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="9" name="Set scale" sid="5717564647715471" type="sfx_bulled_collision">
+                            <param id="0" name="Scale">random(0.2,0.6)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="1987270958099927">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="8843097146238272" type="rocket_simple">
+                    <param id="0" name="Object">bullet_target</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="7774909037867812" type="rocket_simple">
+                    <param id="0" name="Object">explosion_sprite</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-18" name="Rotate clockwise" sid="219147131724054" type="explosion_sprite">
+                    <param id="0" name="Degrees">random(0,340)</param>
+                </action>
+                <action behavior="ScrollTo" id="0" name="Shake" sid="4742380324155964" type="center_screen">
+                    <param id="0" name="Magnitude">20</param>
+                    <param id="1" name="Duration">0.1</param>
+                    <param id="2" name="Mode">0</param>
+                </action>
+                <action id="-9" name="Destroy" sid="3462398897720098" type="rocket_simple" />
+                <action id="-9" name="Destroy" sid="3646944384244437" type="bullet_target" />
+            </actions>
+            <sub-events>
+                <event-block sid="896641584817441">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="2231021850138001" type="System">
+                            <param id="0" name="Variable">boss_invincible</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="9" name="Set scale" sid="783784389099547" type="explosion_sprite">
+                            <param id="0" name="Scale">random(0.5,1.5)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9562854943173978">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="6804771180333402" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="9" name="Set scale" sid="785179594292316" type="explosion_sprite">
+                            <param id="0" name="Scale">random(0.2,0.6)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="5225752868503464">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="4196528025675991" type="firearm_pickup">
+                    <param id="0" name="Object">Player</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="9578506072818023" type="System">
+                    <param id="0" name="Variable">bullet_active_type</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="3543129249099186" type="System">
+                    <param id="0" name="Variable">powerup_bullets</param>
+                    <param id="1" name="Value">120</param>
+                </action>
+                <action id="-9" name="Destroy" sid="9480969996988222" type="firearm_pickup" />
+                <action id="7" name="Play (by name)" sid="4907662229386911" type="Audio">
+                    <param id="0" name="Folder">0</param>
+                    <param id="1" name="Audio file name">&quot;Power&quot;</param>
+                    <param id="3" name="Loop">0</param>
+                    <param id="4" name="Volume">0</param>
+                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5223550746766973">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="9204566201057547" type="duck_powerdown">
+                    <param id="0" name="Object">Player</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="9346444986749714" type="System">
+                    <param id="0" name="Variable">bullet_active_type</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="5106845728208273" type="System">
+                    <param id="0" name="Variable">powerup_bullets</param>
+                    <param id="1" name="Value">40</param>
+                </action>
+                <action id="-9" name="Destroy" sid="7969112088484664" type="duck_powerdown" />
+                <action id="7" name="Play (by name)" sid="7550677366832165" type="Audio">
+                    <param id="0" name="Folder">0</param>
+                    <param id="1" name="Audio file name">&quot;ray&quot;</param>
+                    <param id="3" name="Loop">0</param>
+                    <param id="4" name="Volume">0</param>
+                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2851224056171007">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="2890448954080581" type="firearm_pickup2">
+                    <param id="0" name="Object">Player</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="5437016833829254" type="System">
+                    <param id="0" name="Variable">bullet_active_type</param>
+                    <param id="1" name="Value">3</param>
+                </action>
+                <action id="-9" name="Set value" sid="2007660170123519" type="System">
+                    <param id="0" name="Variable">powerup_bullets</param>
+                    <param id="1" name="Value">240</param>
+                </action>
+                <action id="-9" name="Destroy" sid="340013016575851" type="firearm_pickup2" />
+                <action id="7" name="Play (by name)" sid="5220042507364381" type="Audio">
+                    <param id="0" name="Folder">0</param>
+                    <param id="1" name="Audio file name">&quot;Power&quot;</param>
+                    <param id="3" name="Loop">0</param>
+                    <param id="4" name="Volume">0</param>
+                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7719168089418062">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="7240070688458879" type="rocket_weapon">
+                    <param id="0" name="Object">Player</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="9277663092792794" type="System">
+                    <param id="0" name="Variable">bullet_active_type</param>
+                    <param id="1" name="Value">2</param>
+                </action>
+                <action id="-9" name="Set value" sid="9006548514451083" type="System">
+                    <param id="0" name="Variable">powerup_bullets</param>
+                    <param id="1" name="Value">20</param>
+                </action>
+                <action id="-9" name="Destroy" sid="5160638612382517" type="rocket_weapon" />
+                <action id="7" name="Play (by name)" sid="8723854768977832" type="Audio">
+                    <param id="0" name="Folder">0</param>
+                    <param id="1" name="Audio file name">&quot;ray&quot;</param>
+                    <param id="3" name="Loop">0</param>
+                    <param id="4" name="Volume">0</param>
+                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1062038763812287">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="7962533950707694" type="duck_powerdown2">
+                    <param id="0" name="Object">Player</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="3" name="Set progress" sid="3138632526211848" type="player_health">
+                    <param id="0" name="Value">player_health.Maximum</param>
+                </action>
+                <action id="-9" name="Destroy" sid="7812997543973379" type="duck_powerdown2" />
+                <action id="7" name="Play (by name)" sid="6328627514992452" type="Audio">
+                    <param id="0" name="Folder">0</param>
+                    <param id="1" name="Audio file name">&quot;ray&quot;</param>
+                    <param id="3" name="Loop">0</param>
+                    <param id="4" name="Volume">0</param>
+                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8419702342955675">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="9125337237840045" type="powerups_family">
+                    <param id="0" name="Object">Player</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-34" name="Set layer background color" sid="3584981722613729" type="System">
+                    <param id="0" name="Layer">4</param>
+                    <param id="1" name="Color">rgb(255, 255, 255)</param>
+                </action>
+                <action id="-12" name="Set group active" sid="1191406303896361" type="System">
+                    <param id="0" name="Group name">&quot;Fade_in&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+                <action id="-12" name="Set group active" sid="9684469105735964" type="System">
+                    <param id="0" name="Group name">&quot;Fade_out&quot;</param>
+                    <param id="1" name="State">0</param>
+                </action>
+                <action id="7" name="Play (by name)" sid="3142622915063939" type="Audio">
+                    <param id="0" name="Folder">0</param>
+                    <param id="1" name="Audio file name">&quot;Laser&quot;</param>
+                    <param id="3" name="Loop">0</param>
+                    <param id="4" name="Volume">0</param>
+                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5656671181714056">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="313570445653396" type="System">
+                    <param id="0" name="Interval (seconds)">random(0.5,1.5)</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="1175932402520075">
+                    <conditions>
+                        <condition id="-16" name="Pick random instance" sid="8756529406801012" type="System">
+                            <param id="0" name="Object">spawn_box_throw</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="4707461444416678" type="System">
+                            <param id="0" name="First value">random(0,100)</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Second value">80</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="1654827348114849" type="spawn_box_throw">
+                            <param id="0" name="Object">Sprite13</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="3586141070617577" type="Sprite13">
+                            <param id="0" name="Angle">random(0,200)</param>
+                        </action>
+                        <action behavior="Physics" id="9" name="Set angular velocity" sid="4835764569447295" type="Sprite13">
+                            <param id="0" name="Angular velocity">-100</param>
+                        </action>
+                        <action behavior="Physics" id="3" name="Apply impulse" sid="2200502153749311" type="Sprite13">
+                            <param id="0" name="Impulse X">random(-25,-10)</param>
+                            <param id="1" name="Implulse Y">random(-20,-10)</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="9" name="Set scale" sid="7569247366681241" type="Sprite13">
+                            <param id="0" name="Scale">random(0.6,1)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

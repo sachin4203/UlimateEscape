@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>laset_top_vertical</name>
+    <events>
+        <event-block sid="995706298938825">
+            <conditions>
+                <condition id="4" name="On finished" sid="1184443862736524" type="lasers_top_down">
+                    <param id="0" name="Animation">&quot;lasor_charge&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="9071965658631237" type="lasers_top_down">
+                    <param id="0" name="Animation">&quot;lasor_attack&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6356482809058885">
+            <conditions>
+                <condition id="4" name="On finished" sid="9810555719835994" type="lasers_top_down">
+                    <param id="0" name="Animation">&quot;lasor_attack&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="2105657167626153" type="lasers_top_down">
+                    <param id="0" name="Animation">&quot;lasor_end&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7631676274227037">
+            <conditions>
+                <condition id="4" name="On finished" sid="3618911895464001" type="lasers_top_down">
+                    <param id="0" name="Animation">&quot;lasor_end&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-16" name="Wait" sid="1346207217421109" type="System">
+                    <param id="0" name="Seconds">3</param>
+                </action>
+                <action id="4" name="Set animation" sid="6348553941393739" type="lasers_top_down">
+                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-9" name="Destroy" sid="5904066714098087" type="lasers_top_down" />
+            </actions>
+        </event-block>
+        <event-block sid="6897289966022699">
+            <conditions>
+                <condition id="4" name="On finished" sid="6268340713330985" type="lasers_top_down">
+                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="6521669527037809" type="lasers_top_down">
+                    <param id="0" name="Animation">&quot;lasor_charge&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7614931393771553">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="7819998803852784" type="System">
+                    <param id="0" name="Interval (seconds)">random(1,2)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="3890992833982108" type="System">
+                    <param id="0" name="Variable">boss_invincible</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="9290732265406648">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="6672278369382542" type="System">
+                            <param id="0" name="First value">random(0,100)</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Second value">50</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="996288262427687">
+                            <conditions>
+                                <condition id="-12" name="Repeat" sid="8389010045185328" type="System">
+                                    <param id="0" name="Count">3</param>
+                                </condition>
+                                <condition id="-16" name="Pick random instance" sid="1036870244834857" type="System">
+                                    <param id="0" name="Object">vertical_spawn_points</param>
+                                </condition>
+                                <condition id="1" inverted="1" name="Is overlapping another object" sid="2333477415102174" type="vertical_spawn_points">
+                                    <param id="0" name="Object">lasers_top_down</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Spawn another object" sid="9918839772741314" type="vertical_spawn_points">
+                                    <param id="0" name="Object">lasers_top_down</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="-24" name="Move to top" sid="4566572406760488" type="lasers_top_down" />
+                                <action id="-2" name="Set Y" sid="4109032587207424" type="lasers_top_down">
+                                    <param id="0" name="Y">lasers_top_down.Height+vertical_spawn_points.Height*0.75</param>
+                                </action>
+                                <action id="-18" name="Rotate clockwise" sid="6388364297087042" type="lasers_top_down">
+                                    <param id="0" name="Degrees">90</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="4461995812109738" type="monster_body">
+                                    <param id="0" name="Object">excl_point</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="Image point">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="1269056557490038">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="5648014690681746" type="System" />
+                        <condition id="-16" name="Pick random instance" sid="6798268500410356" type="System">
+                            <param id="0" name="Object">vertical_spawn_points</param>
+                        </condition>
+                        <condition id="1" inverted="1" name="Is overlapping another object" sid="6939429920218953" type="vertical_spawn_points">
+                            <param id="0" name="Object">lasers_top_down</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="8159359916504986" type="vertical_spawn_points">
+                            <param id="0" name="Object">lasers_top_down</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-24" name="Move to top" sid="3275157379926138" type="lasers_top_down" />
+                        <action id="-2" name="Set Y" sid="641005954394747" type="lasers_top_down">
+                            <param id="0" name="Y">lasers_top_down.Height+vertical_spawn_points.Height*0.75</param>
+                        </action>
+                        <action id="-18" name="Rotate clockwise" sid="6121657451494688" type="lasers_top_down">
+                            <param id="0" name="Degrees">90</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="7957410043975053" type="monster_body">
+                            <param id="0" name="Object">excl_point</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="Image point">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="7903058605586003">
+            <conditions>
+                <condition id="5" name="On any finished" sid="7110532573044006" type="excl_point" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="88701484007602" type="excl_point" />
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

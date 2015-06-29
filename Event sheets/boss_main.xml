@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>boss_main</name>
+    <events>
+        <variable constant="0" name="monsterkill_cooldown" sid="891510147769205" static="0" type="number">0</variable>
+        <variable constant="0" name="monster_next_position" sid="7831888581704723" static="0" type="number">0</variable>
+        <variable constant="0" name="turret_next_position" sid="4821812633659395" static="0" type="number">0</variable>
+        <variable constant="0" name="main_monster_defeated" sid="9501596853842213" static="0" type="number">0</variable>
+        <variable constant="0" name="boss_invincible" sid="6305415023599123" static="0" type="number">1</variable>
+        <event-block sid="1906523928582755">
+            <conditions>
+                <condition id="1" name="Compare progress" sid="215711138002286" type="monster_health">
+                    <param id="0" name="Comparison">3</param>
+                    <param id="1" name="Value">0</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="2245093272437536" type="System">
+                    <param id="0" name="Variable">main_monster_defeated</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-34" name="Set layer background color" sid="1351149552492371" type="System">
+                    <param id="0" name="Layer">4</param>
+                    <param id="1" name="Color">rgb(255, 255, 255)</param>
+                </action>
+                <action id="-12" name="Set group active" sid="5324980403583283" type="System">
+                    <param id="0" name="Group name">&quot;Fade_in&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+                <action id="-12" name="Set group active" sid="7476161211886208" type="System">
+                    <param id="0" name="Group name">&quot;Fade_out&quot;</param>
+                    <param id="1" name="State">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="4418790960506484" type="endgame_banner">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-9" name="Destroy" sid="1634588979613843" type="turret_top" />
+                <action id="0" name="Spawn another object" sid="4112919011251448" type="turret_top">
+                    <param id="0" name="Object">explosion_sprite</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-1" name="Set X" sid="2055845293018776" type="explosion_sprite">
+                    <param id="0" name="X">turret_top.X+random(-15,15)</param>
+                </action>
+                <action id="-2" name="Set Y" sid="8637827750116434" type="turret_top">
+                    <param id="0" name="Y">sfx_bulled_collision.y+random(-15,15)</param>
+                </action>
+                <action id="-9" name="Destroy" sid="5835695910316302" type="laser_light" />
+                <action id="-18" name="Set layer opacity" sid="8886458456732132" type="System">
+                    <param id="0" name="Layer">5</param>
+                    <param id="1" name="Opacity">100</param>
+                </action>
+                <action behavior="ScrollTo" id="0" name="Shake" sid="435470872013503" type="center_screen">
+                    <param id="0" name="Magnitude">10</param>
+                    <param id="1" name="Duration">1</param>
+                    <param id="2" name="Mode">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="8007547302639584" type="System">
+                    <param id="0" name="Variable">main_monster_defeated</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="0" name="Spawn another object" sid="4440846588457789" type="enemie">
+                    <param id="0" name="Object">sfx_bulled_collision</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-1" name="Set X" sid="4892136384802387" type="sfx_bulled_collision">
+                    <param id="0" name="X">sfx_bulled_collision.X+random(-50,50)</param>
+                </action>
+                <action id="-2" name="Set Y" sid="5264083385844584" type="sfx_bulled_collision">
+                    <param id="0" name="Y">sfx_bulled_collision.y+random(-40,40)</param>
+                </action>
+                <action behavior="Sine" id="0" name="Set active" sid="3670624116112579" type="monster_body">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="4" name="Set animation" sid="7374737917745736" type="monster_body">
+                    <param id="0" name="Animation">&quot;eye_out&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="4423070794624969" type="System">
+                    <param id="0" name="Variable">monsterkill_cooldown</param>
+                    <param id="1" name="Value">5</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="3777432895874262">
+                    <conditions>
+                        <condition id="1" name="Compare progress" sid="2234399122228801" type="monster_health">
+                            <param id="0" name="Comparison">3</param>
+                            <param id="1" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="3220778240235154" type="enemie">
+                            <param id="0" name="Object">sfx_bulled_collision</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-1" name="Set X" sid="3807247620312822" type="sfx_bulled_collision">
+                            <param id="0" name="X">sfx_bulled_collision.X+random(-50,50)</param>
+                        </action>
+                        <action id="-2" name="Set Y" sid="9806184853480746" type="sfx_bulled_collision">
+                            <param id="0" name="Y">sfx_bulled_collision.y+random(-40,40)</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="8338199970789292" type="enemie">
+                            <param id="0" name="Object">sfx_bulled_collision</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-1" name="Set X" sid="343834310776981" type="sfx_bulled_collision">
+                            <param id="0" name="X">sfx_bulled_collision.X+random(-50,50)</param>
+                        </action>
+                        <action id="-2" name="Set Y" sid="8070434046854939" type="sfx_bulled_collision">
+                            <param id="0" name="Y">sfx_bulled_collision.y+random(-40,40)</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="4542295322288803" type="enemie">
+                            <param id="0" name="Object">sfx_bulled_collision</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-1" name="Set X" sid="4492988297656228" type="sfx_bulled_collision">
+                            <param id="0" name="X">sfx_bulled_collision.X+random(-50,50)</param>
+                        </action>
+                        <action id="-2" name="Set Y" sid="7837826246885845" type="sfx_bulled_collision">
+                            <param id="0" name="Y">sfx_bulled_collision.y+random(-40,40)</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="2441318458028263" type="enemie">
+                            <param id="0" name="Object">sfx_bulled_collision</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-1" name="Set X" sid="7717466117213328" type="sfx_bulled_collision">
+                            <param id="0" name="X">sfx_bulled_collision.X+random(-50,50)</param>
+                        </action>
+                        <action id="-2" name="Set Y" sid="7206433902805867" type="sfx_bulled_collision">
+                            <param id="0" name="Y">sfx_bulled_collision.y+random(-40,40)</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="7953520817154285" type="enemie">
+                            <param id="0" name="Object">sfx_bulled_collision</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-1" name="Set X" sid="7467755160360502" type="sfx_bulled_collision">
+                            <param id="0" name="X">sfx_bulled_collision.X+random(-50,50)</param>
+                        </action>
+                        <action id="-2" name="Set Y" sid="7554264946846637" type="sfx_bulled_collision">
+                            <param id="0" name="Y">sfx_bulled_collision.y+random(-40,40)</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="5806795666537955" type="enemie">
+                            <param id="0" name="Object">sfx_bulled_collision</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-1" name="Set X" sid="9255756849051198" type="sfx_bulled_collision">
+                            <param id="0" name="X">sfx_bulled_collision.X+random(-50,50)</param>
+                        </action>
+                        <action id="-2" name="Set Y" sid="4338099080255366" type="sfx_bulled_collision">
+                            <param id="0" name="Y">sfx_bulled_collision.y+random(-40,40)</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="354880862781183" type="enemie">
+                            <param id="0" name="Object">sfx_bulled_collision</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-1" name="Set X" sid="2743575261932655" type="sfx_bulled_collision">
+                            <param id="0" name="X">sfx_bulled_collision.X+random(-50,50)</param>
+                        </action>
+                        <action id="-2" name="Set Y" sid="2388517538596935" type="sfx_bulled_collision">
+                            <param id="0" name="Y">sfx_bulled_collision.y+random(-40,40)</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="9770056570023699" type="enemie" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="9165935477239827">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="6560711122196311" type="System">
+                    <param id="0" name="Variable">boss_invincible</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="2" inverted="1" name="Is playing" sid="7277920699210149" type="enemie">
+                    <param id="0" name="Animation">&quot;blue_eye&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="989331702297203" type="enemie">
+                    <param id="0" name="Animation">&quot;blue_eye&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7209664954986358">
+            <conditions>
+                <condition id="-22" name="Else" sid="4267261653831959" type="System" />
+                <condition id="-14" name="Compare variable" sid="4638613819700734" type="System">
+                    <param id="0" name="Variable">boss_invincible</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="2" inverted="1" name="Is playing" sid="1950478860811139" type="enemie">
+                    <param id="0" name="Animation">&quot;red_eye&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="3912308191548038" type="enemie">
+                    <param id="0" name="Animation">&quot;red_eye&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3619239358669662">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="9504871137188534" type="System">
+                    <param id="0" name="Interval (seconds)">8</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="5295663624268097" type="System">
+                    <param id="0" name="Variable">boss_invincible</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="9838294222449089" type="System">
+                    <param id="0" name="Variable">turret_disabled</param>
+                    <param id="1" name="Value">4</param>
+                </action>
+                <action id="-16" name="Wait" sid="5657188958659906" type="System">
+                    <param id="0" name="Seconds">4</param>
+                </action>
+                <action id="-9" name="Set value" sid="2130561262459773" type="System">
+                    <param id="0" name="Variable">laser_cooldown</param>
+                    <param id="1" name="Value">2</param>
+                </action>
+                <action id="-9" name="Set value" sid="5585966180474153" type="System">
+                    <param id="0" name="Variable">turret_disabled</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="7132701668530715" type="System">
+                    <param id="0" name="Variable">boss_invincible</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="4" name="Set animation" sid="8648887315626387" type="laser_light">
+                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="0" name="Play" sid="7549664302784814" type="Audio">
+                    <param id="0" name="Audio file">dinosaurrawr</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="726824689330846">
+            <conditions>
+                <condition id="-1" name="Compare X" sid="6347120151585722" type="monster_body">
+                    <param id="0" name="Comparison">5</param>
+                    <param id="1" name="X co-ordinate">LayoutWidth</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="4290604917994709" type="System">
+                    <param id="0" name="Variable">boss_invincible</param>
+                    <param id="1" name="Value">2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6451078752308428">
+            <conditions>
+                <condition id="-4" name="Trigger once while true" sid="3590319991917437" type="System" />
+            </conditions>
+            <actions>
+                <action id="-16" name="Wait" sid="5884145978381502" type="System">
+                    <param id="0" name="Seconds">20</param>
+                </action>
+                <action id="-9" name="Set value" sid="7588228602655585" type="System">
+                    <param id="0" name="Variable">monster_next_position</param>
+                    <param id="1" name="Value">LayoutWidth-100</param>
+                </action>
+                <action id="-9" name="Set value" sid="7287910332067166" type="System">
+                    <param id="0" name="Variable">laser_cooldown</param>
+                    <param id="1" name="Value">5</param>
+                </action>
+                <action id="-9" name="Set value" sid="1603289627603215" type="System">
+                    <param id="0" name="Variable">turret_next_position</param>
+                    <param id="1" name="Value">turret_top.Height-30</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8079799042659211">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="9793941368480204" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="8308559689854669" type="System">
+                    <param id="0" name="Variable">monster_next_position</param>
+                    <param id="1" name="Value">monster_body.x</param>
+                </action>
+                <action id="-9" name="Set value" sid="9784962536521917" type="System">
+                    <param id="0" name="Variable">turret_next_position</param>
+                    <param id="1" name="Value">-50</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="9988049316464521">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="4494740787153317" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="2019819953866222" type="System">
+                    <param id="0" name="Variable">last_movement_time</param>
+                    <param id="1" name="Value">last_movement_time+dt</param>
+                </action>
+                <action id="-1" name="Set X" sid="218266830337674" type="monster_body">
+                    <param id="0" name="X">lerp(monster_body.X,monster_next_position,lerp_speed/20*dt)</param>
+                </action>
+                <action id="-1" name="Set X" sid="8770314355202173" type="turret_top">
+                    <param id="0" name="X">lerp(monster_body.X,monster_next_position-30,lerp_speed/20*dt)</param>
+                </action>
+                <action id="-2" name="Set Y" sid="2547730048739464" type="turret_top">
+                    <param id="0" name="Y">lerp(turret_top.y,turret_next_position,lerp_speed/20*dt)</param>
+                </action>
+                <action id="-9" name="Set value" sid="3450463698999603" type="System">
+                    <param id="0" name="Variable">laser_cooldown</param>
+                    <param id="1" name="Value">laser_cooldown-dt</param>
+                </action>
+                <action id="-11" name="Subtract from" sid="9843910524507911" type="System">
+                    <param id="0" name="Variable">monsterkill_cooldown</param>
+                    <param id="1" name="Value">dt</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

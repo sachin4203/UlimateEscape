@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Death Events</name>
+    <events>
+        <variable constant="0" name="level" sid="6868333460059076" static="0" type="text"></variable>
+        <event-block sid="3058811424560222">
+            <conditions>
+                <condition id="1" name="On any key pressed" sid="446049071901191" type="Keyboard" />
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="4615963129242016" type="System">
+                    <param id="0" name="Layout">level_3</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

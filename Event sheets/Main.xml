@@ -1,0 +1,634 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Main</name>
+    <events>
+        <variable constant="0" name="player_dead" sid="8228998331036061" static="0" type="number">0</variable>
+        <variable constant="0" name="paralax_speed" sid="8234017285133859" static="0" type="number">450</variable>
+        <variable constant="0" name="last_movement_time" sid="9252749625603264" static="0" type="number">0</variable>
+        <variable constant="0" name="combo_counter" sid="7737283492077873" static="0" type="number">0</variable>
+        <variable constant="0" name="combo_cooldown" sid="2485651163646839" static="0" type="number">0</variable>
+        <variable constant="0" name="lerp_speed" sid="929161840723033" static="0" type="number">5</variable>
+        <variable constant="0" name="current_score" sid="8993932246611459" static="0" type="number">0</variable>
+        <variable constant="0" name="highest_score" sid="6402072714597755" static="0" type="number">0</variable>
+        <variable constant="0" name="can_shoot" sid="138830765240502" static="0" type="number">0</variable>
+        <variable constant="0" name="next_x" sid="422439958751307" static="0" type="number">0</variable>
+        <variable constant="0" name="next_y" sid="1294565729056063" static="0" type="number">0</variable>
+        <variable constant="0" name="old_x" sid="5830943721134319" static="0" type="number">0</variable>
+        <variable constant="0" name="old_y" sid="4913863887889713" static="0" type="number">0</variable>
+        <variable constant="0" name="boss_phase_dead" sid="7912300467394583" static="0" type="number">0</variable>
+        <variable constant="0" name="controls_locked" sid="9419563172626735" static="0" type="number">0</variable>
+        <include>laset_top_vertical</include>
+        <include>player_damage</include>
+        <include>fade_transition</include>
+        <include>high_scores</include>
+        <include>bullet_interactions</include>
+        <include>player_offense</include>
+        <include>close_combat</include>
+        <include>boss_main</include>
+        <include>laser_turret</include>
+        <include>swipe_events</include>
+        <include>misc</include>
+        <event-group description="" sid="2166200779227102" title="Group" />
+        <event-block sid="1451305382854864">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="5652688721051217" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="4591171710797155" type="System">
+                    <param id="0" name="Variable">next_x</param>
+                    <param id="1" name="Value">player.X</param>
+                </action>
+                <action id="-9" name="Set value" sid="1284169804373754" type="System">
+                    <param id="0" name="Variable">next_y</param>
+                    <param id="1" name="Value">player.Y</param>
+                </action>
+                <action id="-9" name="Set value" sid="8596155428062299" type="System">
+                    <param id="0" name="Variable">old_x</param>
+                    <param id="1" name="Value">player.X</param>
+                </action>
+                <action id="-9" name="Set value" sid="3708008237133229" type="System">
+                    <param id="0" name="Variable">old_y</param>
+                    <param id="1" name="Value">player.Y</param>
+                </action>
+                <action id="-12" name="Set group active" sid="7093543274656894" type="System">
+                    <param id="0" name="Group name">&quot;Fade_environment&quot;</param>
+                    <param id="1" name="State">0</param>
+                </action>
+                <action id="-12" name="Set group active" sid="4172021582580889" type="System">
+                    <param id="0" name="Group name">&quot;Fade_environment_out&quot;</param>
+                    <param id="1" name="State">0</param>
+                </action>
+                <action behavior="Turret" id="0" name="Acquire target" sid="6790381930896011" type="turret_top">
+                    <param id="0" name="Target">Player</param>
+                </action>
+                <action behavior="Turret" id="5" name="Set enabled" sid="9561730982383279" type="turret_top">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action behavior="Turret" id="0" name="Acquire target" sid="6295610579065854" type="enemie">
+                    <param id="0" name="Target">Player</param>
+                </action>
+                <action behavior="Turret" id="5" name="Set enabled" sid="4618444726690666" type="enemie">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="6429243574339566" type="enemie">
+                    <param id="0" name="Pin to">monster_body</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+                <action id="-1" name="Set X" sid="9461869940146059" type="center_screen">
+                    <param id="0" name="X">LayoutWidth/2</param>
+                </action>
+                <action id="-2" name="Set Y" sid="3703571525724059" type="center_screen">
+                    <param id="0" name="Y">LayoutHeight/2</param>
+                </action>
+                <action id="-27" name="Set effect enabled" sid="9590907368799899" type="enemie">
+                    <param id="0" name="Mode">0</param>
+                    <param id="1" name="Effect">&quot;Sepia&quot;</param>
+                </action>
+                <action id="-8" name="Set angle" sid="3123160598906255" type="laser_light">
+                    <param id="0" name="Angle">turret_top.Angle</param>
+                </action>
+                <action id="-3" name="Set position" sid="7662112376782561" type="laser_light">
+                    <param id="0" name="X">turret_top.X-laser_light.Width/2</param>
+                    <param id="1" name="Y">turret_top.Y</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="7842996092090499" type="laser_light">
+                    <param id="0" name="Pin to">turret_top</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="5498141981742354" type="Sprite3">
+                    <param id="0" name="Pin to">Player</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="6546863955458875" type="weapon">
+                    <param id="0" name="Pin to">Player</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="5155268533981708" type="hand">
+                    <param id="0" name="Pin to">Player</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="1208307694383615" type="tail">
+                    <param id="0" name="Pin to">Player</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+                <action id="8" name="Set flipped" sid="6609316501662585" type="weapon">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="7424835800937357" type="weapon">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="8910548853306469" type="System">
+                    <param id="0" name="Variable">boss_invincible</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="9393809844299765" type="System">
+                    <param id="0" name="Variable">turret_disabled</param>
+                    <param id="1" name="Value">4</param>
+                </action>
+                <action id="-9" name="Set value" sid="1131418000166933" type="System">
+                    <param id="0" name="Variable">player_dead</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="1153133406778458" type="System">
+                    <param id="0" name="Variable">combo_cooldown</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="4760353545278365" type="System">
+                    <param id="0" name="Variable">combo_counter</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="6919013939027377" type="System">
+                    <param id="0" name="Variable">current_score</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="1838146223290519" type="System">
+                    <param id="0" name="Variable">controls_locked</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="6996683650728924" type="System">
+                    <param id="0" name="Variable">boss_phase_dead</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="4623736429391976" type="System">
+                    <param id="0" name="Variable">bullet_active_type</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="4592549261063201" type="System">
+                    <param id="0" name="Variable">bullet_active_type</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="951768038308664" type="System">
+                    <param id="0" name="Variable">powerup_bullets</param>
+                    <param id="1" name="Value">20</param>
+                </action>
+                <action id="-9" name="Set value" sid="3191293902367217" type="System">
+                    <param id="0" name="Variable">can_shoot</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-31" name="Set layout effect parameter" sid="8304345562324281" type="System">
+                    <param id="0" name="Effect">&quot;Sepia&quot;</param>
+                    <param id="1" name="Parameter index">0</param>
+                    <param id="2" name="Value">0</param>
+                </action>
+                <action id="-31" name="Set layout effect parameter" sid="6654590680318165" type="System">
+                    <param id="0" name="Effect">&quot;Noise&quot;</param>
+                    <param id="1" name="Parameter index">0</param>
+                    <param id="2" name="Value">10</param>
+                </action>
+                <action id="-9" name="Set value" sid="5160616246161003" type="System">
+                    <param id="0" name="Variable">current_layout</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="33" name="Stop all" sid="2226667901358408" type="Audio" />
+                <action id="7" name="Play (by name)" sid="3834591681184115" type="Audio">
+                    <param id="0" name="Folder">0</param>
+                    <param id="1" name="Audio file name">&quot;eCommerce&quot;</param>
+                    <param id="3" name="Loop">1</param>
+                    <param id="4" name="Volume">0</param>
+                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1036694991225368">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="7820269061107136" type="System" />
+            </conditions>
+            <actions>
+                <action id="-1" name="Set X" sid="1032351658189568" type="Player">
+                    <param id="0" name="X">lerp(player.X,next_x,lerp_speed*dt)</param>
+                </action>
+                <action id="-2" name="Set Y" sid="8442293257887261" type="Player">
+                    <param id="0" name="Y">lerp(player.Y,next_y,lerp_speed*dt)</param>
+                </action>
+                <action id="3" name="Set progress" sid="8475139801769388" type="combo_meter">
+                    <param id="0" name="Value">combo_meter.Progress-dt*20</param>
+                </action>
+                <action id="0" name="Set text" sid="5178818289987651" type="debug_text">
+                    <param id="0" name="Text">powerup_bullets</param>
+                </action>
+                <action id="0" name="Set text" sid="4503014671709414" type="hp_text">
+                    <param id="0" name="Text">&quot;HP &quot;&amp;player_health.Maximum&amp;&quot;/&quot;&amp;player_health.Progress</param>
+                </action>
+                <action id="-1" name="Set X" sid="7687740511247008" type="bg_forest_01">
+                    <param id="0" name="X">bg_forest_01.X-dt*paralax_speed</param>
+                </action>
+                <action id="-1" name="Set X" sid="7246610704707267" type="bg_forest_2">
+                    <param id="0" name="X">bg_forest_2.X-dt*paralax_speed*0.66</param>
+                </action>
+                <action id="-1" name="Set X" sid="180549616103678" type="bg_forest_3">
+                    <param id="0" name="X">bg_forest_3.X-dt*paralax_speed*0.33</param>
+                </action>
+                <action id="-8" name="Set angle" sid="9647137048691462" type="weapon">
+                    <param id="0" name="Angle">angle(player.X,player.Y,touch.X,touch.Y)</param>
+                </action>
+                <action id="-8" name="Set angle" sid="1435239244463062" type="hand">
+                    <param id="0" name="Angle">angle(hand.X,hand.Y,enemie.X,enemie.Y)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="779291754469401">
+            <conditions>
+                <condition id="-1" name="Compare X" sid="4973176104176258" type="bg_forest_01">
+                    <param id="0" name="Comparison">3</param>
+                    <param id="1" name="X co-ordinate">-999</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-1" name="Set X" sid="2507807867828522" type="bg_forest_01">
+                    <param id="0" name="X">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1674117328079952">
+            <conditions>
+                <condition id="-1" name="Compare X" sid="2188808813114638" type="bg_forest_2">
+                    <param id="0" name="Comparison">3</param>
+                    <param id="1" name="X co-ordinate">-999</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-1" name="Set X" sid="6021988727169275" type="bg_forest_2">
+                    <param id="0" name="X">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7417809683610706">
+            <conditions>
+                <condition id="-1" name="Compare X" sid="7806057351834144" type="bg_forest_3">
+                    <param id="0" name="Comparison">3</param>
+                    <param id="1" name="X co-ordinate">-999</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-1" name="Set X" sid="5067294166958763" type="bg_forest_3">
+                    <param id="0" name="X">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6046557661226375">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="9186971863714791" type="Player">
+                    <param id="0" name="Object">move_target</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-12" name="Set group active" sid="8216176234007257" type="System">
+                    <param id="0" name="Group name">&quot;Fade_environment_out&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+                <action id="-12" name="Set group active" sid="4158565719247633" type="System">
+                    <param id="0" name="Group name">&quot;Fade_environment&quot;</param>
+                    <param id="1" name="State">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="5853423099557971" type="System">
+                    <param id="0" name="Variable">controls_locked</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7700829645354851">
+            <conditions>
+                <condition id="-22" name="Else" sid="5569203105967431" type="System" />
+                <condition id="1" inverted="1" name="Is overlapping another object" sid="7634480496968608" type="Player">
+                    <param id="0" name="Object">move_target</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-12" name="Set group active" sid="8941215744572839" type="System">
+                    <param id="0" name="Group name">&quot;Fade_environment_out&quot;</param>
+                    <param id="1" name="State">0</param>
+                </action>
+                <action id="-12" name="Set group active" sid="8206514472416553" type="System">
+                    <param id="0" name="Group name">&quot;Fade_environment&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="6935091038249176" title="Fade_environment">
+            <sub-events>
+                <event-block sid="7459322130351683">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="4727498393043568" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-18" name="Set layer opacity" sid="5720684652989591" type="System">
+                            <param id="0" name="Layer">&quot;Lighting&quot;</param>
+                            <param id="1" name="Opacity">LayerOpacity(&quot;Lighting&quot;)-(dt*200)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="4707362807899279" title="Fade_environment_out">
+            <sub-events>
+                <event-block sid="7459322130351683">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="4727498393043568" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-18" name="Set layer opacity" sid="1761102435332786" type="System">
+                            <param id="0" name="Layer">&quot;Lighting&quot;</param>
+                            <param id="1" name="Opacity">LayerOpacity(&quot;Lighting&quot;)+(dt*200)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <comment>After touches enemie enters quick time event mode where you can slash the boss, miss quickime event and you are fucked</comment>
+        <event-block sid="4240333411511311">
+            <conditions>
+                <condition id="1" name="Compare progress" sid="6470917064604445" type="combo_meter">
+                    <param id="0" name="Comparison">3</param>
+                    <param id="1" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="916918545485266" type="System">
+                    <param id="0" name="Variable">combo_counter</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="775124267656768">
+            <conditions>
+                <condition id="5" name="On any finished" sid="6443976541253288" type="Sprite5" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="4276794663756336" type="Sprite5" />
+            </actions>
+        </event-block>
+        <event-block sid="6255074447702505">
+            <conditions>
+                <condition id="5" name="On any finished" sid="5042166909371789" type="Sprite6" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="6469915914511265" type="Sprite6" />
+            </actions>
+        </event-block>
+        <event-block disabled="1" sid="4668231600252184">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="5840455641532897" type="System">
+                    <param id="0" name="Interval (seconds)">0.3</param>
+                </condition>
+                <condition id="-9" name="Is visible" sid="2619679828396302" type="move_target" />
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="2474819434827258" type="move_target">
+                    <param id="0" name="Object">Sprite9</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3187264552945408">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="1340360342979928" type="System">
+                    <param id="0" name="Interval (seconds)">random(0.1,0.7)</param>
+                </condition>
+                <condition id="-9" name="Is visible" sid="3854191205958735" type="move_target" />
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="7650812696359178" type="move_target">
+                    <param id="0" name="Object">motion_woosh</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="8994616994101369" type="motion_woosh">
+                    <param id="0" name="Opacity">random(3,20)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8886832286493903">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="6392173928339368" type="System">
+                    <param id="0" name="Interval (seconds)">random(0.7,1.6)</param>
+                </condition>
+                <condition id="-9" inverted="1" name="Is visible" sid="8318269118764529" type="move_target2" />
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="5438634069196693" type="move_target2">
+                    <param id="0" name="Object">alternate_dood</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="7812669072884194" type="motion_woosh">
+                    <param id="0" name="Opacity">random(3,20)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7068052272977464">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="7414835722721452" type="System">
+                    <param id="0" name="Interval (seconds)">2</param>
+                </condition>
+                <condition id="-9" name="Is visible" sid="6833252165244406" type="enemie" />
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="3813731673862819" type="enemie">
+                    <param id="0" name="Object">Sprite9</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="7" name="Set mirrored" sid="5277623979738189" type="Sprite9">
+                    <param id="0" name="State">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5809100571060989">
+            <conditions>
+                <condition id="-1" name="Compare X" sid="5363724049260719" type="Player">
+                    <param id="0" name="Comparison">2</param>
+                    <param id="1" name="X co-ordinate">Touch.X-Player.Width/2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="8" name="Set flipped" sid="9773073214026642" type="weapon">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="-25" name="Move to bottom" sid="9103451340375797" type="weapon" />
+            </actions>
+        </event-block>
+        <event-block sid="5476598049308976">
+            <conditions>
+                <condition id="-22" name="Else" sid="8518964728263566" type="System" />
+            </conditions>
+            <actions>
+                <action id="8" name="Set flipped" sid="3893602970949183" type="weapon">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action id="-24" name="Move to top" sid="3249978639101481" type="weapon" />
+            </actions>
+        </event-block>
+        <event-block sid="3509966545035507">
+            <conditions>
+                <condition id="-9" name="Is visible" sid="3899701876959701" type="weapon" />
+                <condition id="-9" name="Is visible" sid="1496681747569465" type="weapon" />
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="9548441653256626" type="hand">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1447329132866208">
+            <conditions>
+                <condition id="-22" name="Else" sid="9394196197482254" type="System" />
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="3068270530716033" type="hand">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4066267994376694">
+            <conditions>
+                <condition id="14" name="On tap" sid="5987048992359604" type="Touch" />
+                <condition id="-8" name="Compare two values" sid="7027169117032236" type="System">
+                    <param id="0" name="First value">monsterkill_cooldown</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Second value">0</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block any="1" sid="3350489448185389">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="2384454715379735" type="System">
+                            <param id="0" name="First value">player_dead</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">1</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="6104865371559646" type="System">
+                            <param id="0" name="First value">monster_health.Progress</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Second value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-26" name="Restart layout" sid="1460752670134373" type="System" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="8456948226297819">
+            <conditions>
+                <condition id="-8" name="Compare two values" sid="3183684892811457" type="System">
+                    <param id="0" name="First value">monsterkill_cooldown</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Second value">0</param>
+                </condition>
+                <condition id="-9" name="Is visible" sid="6741663669734326" type="endgame_banner" />
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="6992343468263852" type="RESTART_TEXT">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3285220625954161">
+            <conditions>
+                <condition id="-22" name="Else" sid="775540824470563" type="System" />
+                <condition id="-9" name="Is visible" sid="5151060828377975" type="endgame_banner" />
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="4574579615373731" type="RESTART_TEXT">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7222221075990584">
+            <conditions>
+                <condition id="-19" name="On destroyed" sid="8489651412088223" type="Player" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="5966684678472612" type="System">
+                    <param id="0" name="Variable">player_dead</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="2990354335720479" type="System">
+                    <param id="0" name="Variable">monsterkill_cooldown</param>
+                    <param id="1" name="Value">4</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block disabled="1" sid="2255791092317799">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="4065811633838476" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="8571798356292557" type="Player">
+                    <param id="0" name="Object">Sprite14</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="Image point">3</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="9417724882230844">
+            <conditions>
+                <condition id="1" name="Compare progress" sid="7432880454757423" type="player_health">
+                    <param id="0" name="Comparison">3</param>
+                    <param id="1" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="6211635269443162" type="endgame_banner">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="4" name="Set animation" sid="9716050604056321" type="endgame_banner">
+                    <param id="0" name="Animation">&quot;lose&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-31" name="Set layout effect parameter" sid="1430227950139379" type="System">
+                    <param id="0" name="Effect">&quot;Sepia&quot;</param>
+                    <param id="1" name="Parameter index">0</param>
+                    <param id="2" name="Value">100</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5536739611681466">
+            <conditions>
+                <condition id="-9" name="Is visible" sid="6617723106134404" type="endgame_banner" />
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="8846656877696771" type="debug_text">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="3170433791332619" type="debug_text2">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="1" name="Set visible" sid="2621310579438873" type="combo_meter">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="1" name="Set visible" sid="3001771079811478" type="monster_health">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="1" name="Set visible" sid="3538930105925717" type="player_health">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="9038646064984327" type="Sprite16">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="5133666188952092" type="Text2">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="5978185702113086" type="hp_text">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3134335862970633">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="8838658312582148" type="Keyboard">
+                    <param id="0" name="Key">27 (Esc)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="33" name="Stop all" sid="9459405999478004" type="Audio" />
+                <action id="-2" name="Go to layout" sid="9288761333933034" type="System">
+                    <param id="0" name="Layout">menu_tryout</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

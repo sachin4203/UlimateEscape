@@ -1,0 +1,514 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>level3 sheet</name>
+    <events>
+        <include>Puzzlepeices</include>
+        <include>player111constrols</include>
+        <event-block sid="7538187313552711">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="7171056446623705" type="System" />
+                <condition id="-11" name="For Each" sid="9952207423023402" type="System">
+                    <param id="0" name="Object">Door</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="7844533523026924" type="Door">
+                    <param id="0" name="Instance variable">startingPosition</param>
+                    <param id="1" name="Value">Door.Y</param>
+                </action>
+                <action id="-15" name="Set visible" sid="3903777626105468" type="Goal">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7172750361995209">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="3132486552709428" type="System" />
+                <condition id="-11" name="For Each" sid="7715391986386665" type="System">
+                    <param id="0" name="Object">PressurePlateTemp</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="4533520184581129" type="PressurePlateTemp">
+                    <param id="0" name="Instance variable">startingPosition</param>
+                    <param id="1" name="Value">PressurePlateTemp.Y</param>
+                </action>
+                <action id="-3" name="Create object" sid="7337750073919765" type="System">
+                    <param id="0" name="Object to create">PressurePlateBox</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="X">PressurePlateTemp.X</param>
+                    <param id="3" name="Y">PressurePlateTemp.Y</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="4231326837247778" type="PressurePlateBox">
+                    <param id="0" name="Pin to">PressurePlateTemp</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+                <action id="-13" name="Set boolean" sid="1603519008223315" type="PressurePlateTemp">
+                    <param id="0" name="Instance variable">isPressed</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7806084347220477">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="2525708962668088" type="System" />
+            </conditions>
+            <actions>
+                <action id="33" name="Stop all" sid="5824390081312876" type="Audio" />
+                <action id="7" name="Play (by name)" sid="3360513539643142" type="Audio">
+                    <param id="0" name="Folder">0</param>
+                    <param id="1" name="Audio file name">&quot;Hackers&quot;</param>
+                    <param id="3" name="Loop">1</param>
+                    <param id="4" name="Volume">0</param>
+                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6702099718511106">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="3999264296335023" type="System" />
+                <condition id="-11" name="For Each" sid="3766199383771391" type="System">
+                    <param id="0" name="Object">PressurePlatePerma</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="6571008607525436" type="PressurePlatePerma">
+                    <param id="0" name="Instance variable">isPressed</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1359606771962613">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="7689481440459395" type="System" />
+                <condition id="-14" name="Pick by unique ID" sid="1551894098651916" type="Sprite2">
+                    <param id="0" name="Unique ID">40</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="2544626120649249" type="MobileBlock">
+                    <param id="0" name="Instance variable">startX</param>
+                    <param id="1" name="Value">MobileBlock.X</param>
+                </action>
+                <action id="-10" name="Set value" sid="3711915406180491" type="MobileBlock">
+                    <param id="0" name="Instance variable">startY</param>
+                    <param id="1" name="Value">MobileBlock.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2957473484897461">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="9578855037753658" type="Goal">
+                    <param id="0" name="Object">Player111</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="1923138235030648" type="System">
+                    <param id="0" name="Layout">main_game</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5189534322947875">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="1969113726865441" type="Player111">
+                    <param id="0" name="Object">fallingBlocks</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Physics" id="21" name="Set immovable" sid="1711152287159913" type="fallingBlocks">
+                    <param id="0" name="Setting">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4719621864282531">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="3172994504999933" type="fallingBlocks">
+                    <param id="0" name="Object">LavaBlocks</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="4229825390500341" type="fallingBlocks" />
+            </actions>
+        </event-block>
+        <event-group description="" sid="6627045913917037" title="Switches/Levers">
+            <sub-events>
+                <event-block sid="3321466211708919">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="1058672420158844" type="PressurePlateTemp">
+                            <param id="0" name="Instance variable">isPressed</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="1518437539702178" type="PressurePlateTemp">
+                            <param id="0" name="Unique ID">442</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="9379540752755154" type="Door">
+                            <param id="0" name="Unique ID">240</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="6825761415712572" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="5170264913413408" type="Door">
+                            <param id="0" name="Instance variable">isOpen</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7752810438754352">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="5849599978460892" type="PressurePlateTemp">
+                            <param id="0" name="Instance variable">isPressed</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="7427302891387109" type="PressurePlateTemp">
+                            <param id="0" name="Unique ID">442</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="3305470745432405" type="Door">
+                            <param id="0" name="Unique ID">240</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="9176723337753999" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="7365043417691648" type="Door">
+                            <param id="0" name="Instance variable">isOpen</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7878898313610366">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="2379566040662918" type="PressurePlateTemp">
+                            <param id="0" name="Instance variable">isPressed</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="9122635953941951" type="PressurePlateTemp">
+                            <param id="0" name="Unique ID">241</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="5600491939467057" type="Door">
+                            <param id="0" name="Unique ID">240</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="9831253890267114" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="7168940591337893" type="Door">
+                            <param id="0" name="Instance variable">isOpen</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2182563815380371">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="3400988578560764" type="PressurePlateTemp">
+                            <param id="0" name="Instance variable">isPressed</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="9740307525975977" type="PressurePlateTemp">
+                            <param id="0" name="Unique ID">442</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="750411253348278" type="Door">
+                            <param id="0" name="Unique ID">240</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="5052047020170985" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="2126796578106808" type="Door">
+                            <param id="0" name="Instance variable">isOpen</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4075763381711429">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="8992859510372909" type="Lever">
+                            <param id="0" name="Instance variable">isSet</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="4473721275183994" type="Lever">
+                            <param id="0" name="Unique ID">245</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="9540015957822799" type="Door">
+                            <param id="0" name="Unique ID">246</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="4293492532677626" type="Door">
+                            <param id="0" name="Instance variable">isOpen</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8106434580928752">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="738740299039118" type="Lever">
+                            <param id="0" name="Instance variable">isSet</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="7865342400232518" type="Lever">
+                            <param id="0" name="Unique ID">245</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="7669184941498343" type="Door">
+                            <param id="0" name="Unique ID">246</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="8649446975029582" type="Door">
+                            <param id="0" name="Instance variable">isOpen</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="46355566900946">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="6241594179316844" type="PressurePlateTemp">
+                            <param id="0" name="Instance variable">isPressed</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="9271156685466496" type="PressurePlateTemp">
+                            <param id="0" name="Unique ID">130</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="4379331653621165" type="Door">
+                            <param id="0" name="Unique ID">193</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="8131384294931925" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="335163082151828" type="Door">
+                            <param id="0" name="Instance variable">isOpen</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9795622721482542">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="3395893478219091" type="PressurePlateTemp">
+                            <param id="0" name="Instance variable">isPressed</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="4136619250286498" type="PressurePlateTemp">
+                            <param id="0" name="Unique ID">130</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="2284676194604839" type="Door">
+                            <param id="0" name="Unique ID">193</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="2538149329603651" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="8912757082980329" type="Door">
+                            <param id="0" name="Instance variable">isOpen</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5098127401783133">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="1162262083933225" type="Lever">
+                            <param id="0" name="Instance variable">isSet</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="9421866778473386" type="Lever">
+                            <param id="0" name="Unique ID">282</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="5389151408202826" type="Door">
+                            <param id="0" name="Unique ID">259</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="6072405749648445" type="Door">
+                            <param id="0" name="Instance variable">isOpen</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6904607264593009">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="5982824575435976" type="Lever">
+                            <param id="0" name="Instance variable">isSet</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="6334647347768555" type="Lever">
+                            <param id="0" name="Unique ID">282</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="8175031097569672" type="Door">
+                            <param id="0" name="Unique ID">259</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="4657873459897184" type="Door">
+                            <param id="0" name="Instance variable">isOpen</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4230338035906541">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="2115408085978285" type="PressurePlatePerma">
+                            <param id="0" name="Instance variable">isPressed</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="5572820609444167" type="PressurePlatePerma">
+                            <param id="0" name="Unique ID">271</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="1386007286260637" type="Door">
+                            <param id="0" name="Unique ID">272</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="4358544986194546" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="9910049591283027" type="Door">
+                            <param id="0" name="Instance variable">isOpen</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1832019031596442">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="397160994146137" type="PressurePlatePerma">
+                            <param id="0" name="Instance variable">isPressed</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="518273634599402" type="PressurePlatePerma">
+                            <param id="0" name="Unique ID">271</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="8310767300068053" type="Door">
+                            <param id="0" name="Unique ID">272</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="8530906827043147" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="7411170344241491" type="Door">
+                            <param id="0" name="Instance variable">isOpen</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4966161038702581">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="1455251104588252" type="Lever">
+                            <param id="0" name="Instance variable">isSet</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="2176408039577705" type="Lever">
+                            <param id="0" name="Unique ID">310</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="2544988058564211" type="Door">
+                            <param id="0" name="Unique ID">311</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="9727637418194276" type="Door">
+                            <param id="0" name="Instance variable">isOpen</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7057173851605233">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="6761033533845577" type="Lever">
+                            <param id="0" name="Instance variable">isSet</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="4457129737289605" type="Lever">
+                            <param id="0" name="Unique ID">310</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="4359357464771991" type="Door">
+                            <param id="0" name="Unique ID">311</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="507511910500954" type="Door">
+                            <param id="0" name="Instance variable">isOpen</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="959302672898153">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="3746770974285678" type="Lever">
+                            <param id="0" name="Instance variable">isSet</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="1007938595867932" type="Lever">
+                            <param id="0" name="Unique ID">334</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="6026520981830051" type="Lever">
+                            <param id="0" name="Unique ID">333</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="7029107141968055" type="Lever">
+                            <param id="0" name="Unique ID">323</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="1497100516038948" type="Door">
+                            <param id="0" name="Unique ID">337</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="6893862952490456" type="Door">
+                            <param id="0" name="Instance variable">isOpen</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="426929302991277">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="3962015854577368" type="Lever">
+                            <param id="0" name="Instance variable">isSet</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="6799658410268826" type="Lever">
+                            <param id="0" name="Unique ID">334</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="7058056243021519" type="Lever">
+                            <param id="0" name="Unique ID">333</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="3435043672100382" type="Lever">
+                            <param id="0" name="Unique ID">323</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="6562479170220937" type="Door">
+                            <param id="0" name="Unique ID">337</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="3476642004021063" type="Door">
+                            <param id="0" name="Instance variable">isOpen</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4626329600761197">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="5133779318865903" type="Lever">
+                            <param id="0" name="Instance variable">isSet</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="5884570751850264" type="Lever">
+                            <param id="0" name="Unique ID">366</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="8342803551164635" type="Door">
+                            <param id="0" name="Unique ID">391</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="5171973144544894" type="Door">
+                            <param id="0" name="Instance variable">isOpen</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7585750967023269">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="5373785643869476" type="Lever">
+                            <param id="0" name="Instance variable">isSet</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="8680100958427618" type="Lever">
+                            <param id="0" name="Unique ID">366</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="1651367929159292" type="Door">
+                            <param id="0" name="Unique ID">391</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="401751346479795" type="Door">
+                            <param id="0" name="Instance variable">isOpen</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="5182935851874645">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="3478161832831339" type="Keyboard">
+                    <param id="0" name="Key">27 (Esc)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="33" name="Stop all" sid="1177385482454256" type="Audio" />
+                <action id="-2" name="Go to layout" sid="8355583562249511" type="System">
+                    <param id="0" name="Layout">menu_tryout</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

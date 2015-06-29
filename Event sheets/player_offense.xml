@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>player_offense</name>
+    <events>
+        <event-block sid="8941064108800673">
+            <conditions>
+                <condition id="1" name="On any touch end" sid="4520315937884247" type="Touch" />
+                <condition id="-14" name="Compare variable" sid="2622123895746768" type="System">
+                    <param id="0" name="Variable">t</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0.5</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="4861910864895678" type="System">
+                    <param id="0" name="Variable">controls_locked</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="8583437850680473" type="System">
+                    <param id="0" name="Variable">next_x</param>
+                    <param id="1" name="Value">touch.X</param>
+                </action>
+                <action id="-9" name="Set value" sid="9908129578581204" type="System">
+                    <param id="0" name="Variable">next_y</param>
+                    <param id="1" name="Value">touch.Y</param>
+                </action>
+                <action id="-9" name="Set value" sid="4480834592803219" type="System">
+                    <param id="0" name="Variable">last_movement_time</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="1294064114903721">
+                    <conditions>
+                        <condition id="4" name="Is touching object" sid="6500800286485209" type="Touch">
+                            <param id="0" name="Object">enemie</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="7659848479723281" type="System">
+                            <param id="0" name="Variable">lerp_speed</param>
+                            <param id="1" name="Value">lerp_speed*4</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="8118675463957655" type="System">
+                            <param id="0" name="Seconds">0.05</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="1855811622611061" type="System">
+                            <param id="0" name="Variable">lerp_speed</param>
+                            <param id="1" name="Value">lerp_speed/4</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="5678200656940902">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="149592629983872" type="Player">
+                    <param id="0" name="Object">enemie</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="9781325607358788" type="System">
+                    <param id="0" name="Variable">next_x</param>
+                    <param id="1" name="Value">enemie.X-200+random(-20,20)</param>
+                </action>
+                <action id="-9" name="Set value" sid="3738644605396636" type="System">
+                    <param id="0" name="Variable">next_y</param>
+                    <param id="1" name="Value">enemie.Y+random(-20,20)</param>
+                </action>
+                <action id="-9" name="Set value" sid="4891461139301865" type="System">
+                    <param id="0" name="Variable">controls_locked</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="4" name="Set animation" sid="8725937840000024" type="Player">
+                    <param id="0" name="Animation">&quot;attack_now&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action behavior="Sine" id="0" name="Set active" sid="3049358513313416" type="monster_body">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="8832273493067599" type="System">
+                    <param id="0" name="Seconds">0.5</param>
+                </action>
+                <action behavior="Sine" id="0" name="Set active" sid="1009601905701298" type="monster_body">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action id="4" name="Set animation" sid="1111196603300778" type="Player">
+                    <param id="0" name="Animation">&quot;default&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="2469765280110411" type="System">
+                    <param id="0" name="Variable">controls_locked</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2970385764473073">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="9891588041007599" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="8466904765733973" type="System">
+                    <param id="0" name="Variable">last_movement_time</param>
+                    <param id="1" name="Value">last_movement_time+dt</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6774150731254154">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="1891907603479523" type="System">
+                    <param id="0" name="Variable">next_x</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="890712507300051" type="System">
+                    <param id="0" name="Variable">next_x</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6565151165419674">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="3610442506723589" type="System">
+                    <param id="0" name="Variable">next_y</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="5940224218702978" type="System">
+                    <param id="0" name="Variable">next_y</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4543652956339185">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="6649361434604667" type="System">
+                    <param id="0" name="Variable">next_x</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Value">LayoutWidth</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="5448898713113521" type="System">
+                    <param id="0" name="Variable">next_x</param>
+                    <param id="1" name="Value">LayoutWidth</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1400642700109285">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="1691393298579166" type="System">
+                    <param id="0" name="Variable">next_y</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Value">LayoutHeight</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="5574756683729497" type="System">
+                    <param id="0" name="Variable">next_y</param>
+                    <param id="1" name="Value">LayoutHeight</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5998551151278484">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="695107984016309" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="2446214679440996" type="System">
+                    <param id="0" name="Variable">monster_next_position</param>
+                    <param id="1" name="Value">LayoutWidth-100</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

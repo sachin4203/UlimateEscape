@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>player_damage</name>
+    <events>
+        <variable constant="0" name="player_invincible" sid="6839533463801285" static="0" type="number">0</variable>
+        <event-block any="1" sid="3420167589889842">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="4257037556838341" type="Player">
+                    <param id="0" name="Object">Sprite9</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="3" name="Set progress" sid="9498411514653513" type="player_health">
+                    <param id="0" name="Value">player_health.Progress-1</param>
+                </action>
+                <action id="-9" name="Destroy" sid="3246154595074136" type="Sprite9" />
+                <action behavior="ScrollTo" id="0" name="Shake" sid="3515652306482722" type="center_screen">
+                    <param id="0" name="Magnitude">22</param>
+                    <param id="1" name="Duration">0.3</param>
+                    <param id="2" name="Mode">0</param>
+                </action>
+                <action id="-31" name="Set layout effect parameter" sid="2986058432803404" type="System">
+                    <param id="0" name="Effect">&quot;Sepia&quot;</param>
+                    <param id="1" name="Parameter index">0</param>
+                    <param id="2" name="Value">100</param>
+                </action>
+                <action id="-16" name="Wait" sid="2374595002142412" type="System">
+                    <param id="0" name="Seconds">0.3</param>
+                </action>
+                <action id="-31" name="Set layout effect parameter" sid="5198328635025213" type="System">
+                    <param id="0" name="Effect">&quot;Sepia&quot;</param>
+                    <param id="1" name="Parameter index">0</param>
+                    <param id="2" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block any="1" sid="2816440821060479">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="3706798969590792" type="Player">
+                    <param id="0" name="Object">alternate_dood</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="3" name="Set progress" sid="8917307133378371" type="player_health">
+                    <param id="0" name="Value">player_health.Progress-1</param>
+                </action>
+                <action id="-9" name="Destroy" sid="1313011058949991" type="Sprite9" />
+                <action behavior="ScrollTo" id="0" name="Shake" sid="4834144215163531" type="center_screen">
+                    <param id="0" name="Magnitude">22</param>
+                    <param id="1" name="Duration">0.3</param>
+                    <param id="2" name="Mode">0</param>
+                </action>
+                <action id="-31" name="Set layout effect parameter" sid="966615176883684" type="System">
+                    <param id="0" name="Effect">&quot;Sepia&quot;</param>
+                    <param id="1" name="Parameter index">0</param>
+                    <param id="2" name="Value">100</param>
+                </action>
+                <action id="-16" name="Wait" sid="7813174027845888" type="System">
+                    <param id="0" name="Seconds">0.3</param>
+                </action>
+                <action id="-31" name="Set layout effect parameter" sid="5463347119227606" type="System">
+                    <param id="0" name="Effect">&quot;Sepia&quot;</param>
+                    <param id="1" name="Parameter index">0</param>
+                    <param id="2" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2035923921629187">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="2913251589123269" type="Player">
+                    <param id="0" name="Object">laser_light</param>
+                </condition>
+                <condition id="2" name="Is playing" sid="1657086237913242" type="laser_light">
+                    <param id="0" name="Animation">&quot;lasor_attack&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="3" name="Set progress" sid="81521204181702" type="player_health">
+                    <param id="0" name="Value">player_health.Progress-1</param>
+                </action>
+                <action behavior="ScrollTo" id="0" name="Shake" sid="9404992003441596" type="center_screen">
+                    <param id="0" name="Magnitude">22</param>
+                    <param id="1" name="Duration">0.3</param>
+                    <param id="2" name="Mode">0</param>
+                </action>
+                <action id="-31" name="Set layout effect parameter" sid="4995576226954082" type="System">
+                    <param id="0" name="Effect">&quot;Sepia&quot;</param>
+                    <param id="1" name="Parameter index">0</param>
+                    <param id="2" name="Value">100</param>
+                </action>
+                <action id="-16" name="Wait" sid="9633419894917718" type="System">
+                    <param id="0" name="Seconds">0.3</param>
+                </action>
+                <action id="-31" name="Set layout effect parameter" sid="9308658878700153" type="System">
+                    <param id="0" name="Effect">&quot;Sepia&quot;</param>
+                    <param id="1" name="Parameter index">0</param>
+                    <param id="2" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8008712757995623">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="9141185450758027" type="Player">
+                    <param id="0" name="Object">lasers_top_down</param>
+                </condition>
+                <condition id="2" name="Is playing" sid="4223570975862635" type="lasers_top_down">
+                    <param id="0" name="Animation">&quot;lasor_attack&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="3" name="Set progress" sid="3895665899702102" type="player_health">
+                    <param id="0" name="Value">player_health.Progress-1</param>
+                </action>
+                <action behavior="ScrollTo" id="0" name="Shake" sid="2039377695561859" type="center_screen">
+                    <param id="0" name="Magnitude">20</param>
+                    <param id="1" name="Duration">0.3</param>
+                    <param id="2" name="Mode">0</param>
+                </action>
+                <action id="-31" name="Set layout effect parameter" sid="5572146843331969" type="System">
+                    <param id="0" name="Effect">&quot;Sepia&quot;</param>
+                    <param id="1" name="Parameter index">0</param>
+                    <param id="2" name="Value">100</param>
+                </action>
+                <action id="-16" name="Wait" sid="6858648116666775" type="System">
+                    <param id="0" name="Seconds">0.3</param>
+                </action>
+                <action id="-31" name="Set layout effect parameter" sid="435888628468274" type="System">
+                    <param id="0" name="Effect">&quot;Sepia&quot;</param>
+                    <param id="1" name="Parameter index">0</param>
+                    <param id="2" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7533886596941921">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="2307762339494276" type="System">
+                    <param id="0" name="Variable">boss_phase_dead</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Set Y" sid="5544865001564987" type="monster_body">
+                    <param id="0" name="Y">monster_body.y+100*dt</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="9876251265521964">
+            <conditions>
+                <condition id="-19" name="On destroyed" sid="1942574665780319" type="enemie" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="2537856624757873" type="System">
+                    <param id="0" name="Variable">boss_phase_dead</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action behavior="Turret" id="5" name="Set enabled" sid="9962074191543532" type="turret_top">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="8528169601281902" type="System">
+                    <param id="0" name="Variable">turret_disabled</param>
+                    <param id="1" name="Value">3</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2106335781800997">
+            <conditions>
+                <condition id="1" name="Compare progress" sid="7581718077646216" type="player_health">
+                    <param id="0" name="Comparison">3</param>
+                    <param id="1" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="1806826447188958" type="Player">
+                    <param id="0" name="Object">Sprite12</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="0" name="Spawn another object" sid="7026662214669464" type="Player">
+                    <param id="0" name="Object">explosion_sprite</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="2538954288082162" type="Player">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-9" name="Destroy" sid="7946920107228011" type="Player" />
+                <action id="-9" name="Destroy" sid="593858384613301" type="hand" />
+                <action id="-9" name="Destroy" sid="1637531940414045" type="tail" />
+                <action id="-9" name="Destroy" sid="8352165489985075" type="weapon" />
+            </actions>
+        </event-block>
+        <event-block sid="3803394360075992">
+            <conditions>
+                <condition id="-18" name="On created" sid="3864465172358175" type="Sprite12" />
+            </conditions>
+            <actions>
+                <action behavior="Physics" id="9" name="Set angular velocity" sid="4403309738624507" type="Sprite12">
+                    <param id="0" name="Angular velocity">-360</param>
+                </action>
+                <action behavior="Physics" id="3" name="Apply impulse" sid="8339333222376146" type="Sprite12">
+                    <param id="0" name="Impulse X">random(2,-2)</param>
+                    <param id="1" name="Implulse Y">random(-2,-4)</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

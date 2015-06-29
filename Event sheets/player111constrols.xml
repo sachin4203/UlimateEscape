@@ -1,0 +1,399 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>player111constrols</name>
+    <events>
+        <event-block sid="187407939808143">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="6744525484386834" type="System" />
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="3672598921171687" type="Player111">
+                    <param id="0" name="Instance variable">hasTeddy</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2334337224645102">
+            <conditions>
+                <condition id="2" name="Key is down" sid="2088760500693294" type="Keyboard">
+                    <param id="0" name="Key">32 (Space)</param>
+                </condition>
+                <condition id="-15" name="Pick nearest/furthest" sid="8212776549529921" type="MobileBlock">
+                    <param id="0" name="Which">0</param>
+                    <param id="1" name="X">Player111.X</param>
+                    <param id="2" name="Y">Player111.Y</param>
+                </condition>
+                <condition id="-1" name="Compare X" sid="320998226263166" type="Player111">
+                    <param id="0" name="Comparison">2</param>
+                    <param id="1" name="X co-ordinate">MobileBlock.X</param>
+                </condition>
+                <condition id="-1" name="Compare X" sid="9449309697573954" type="Player111">
+                    <param id="0" name="Comparison">5</param>
+                    <param id="1" name="X co-ordinate">MobileBlock.X - (1.5 * MobileBlock.Width)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="4957019454624788" type="MobileBlock">
+                    <param id="0" name="X">Player111.X + Self.Width</param>
+                    <param id="1" name="Y">Player111.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7537668246241755">
+            <conditions>
+                <condition id="2" name="Key is down" sid="2558307626941904" type="Keyboard">
+                    <param id="0" name="Key">32 (Space)</param>
+                </condition>
+                <condition id="-15" name="Pick nearest/furthest" sid="3370980433551001" type="MobileBlock">
+                    <param id="0" name="Which">0</param>
+                    <param id="1" name="X">Player111.X</param>
+                    <param id="2" name="Y">Player111.Y</param>
+                </condition>
+                <condition id="-1" name="Compare X" sid="8090527832042626" type="Player111">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="X co-ordinate">MobileBlock.X</param>
+                </condition>
+                <condition id="-1" name="Compare X" sid="8134954329796347" type="Player111">
+                    <param id="0" name="Comparison">3</param>
+                    <param id="1" name="X co-ordinate">MobileBlock.X + (1.5 * MobileBlock.Width)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="2050409854094548" type="MobileBlock">
+                    <param id="0" name="X">Player111.X - Self.Width</param>
+                    <param id="1" name="Y">Player111.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8063237105209573">
+            <conditions>
+                <condition id="2" name="Key is down" sid="203548892154366" type="Keyboard">
+                    <param id="0" name="Key">32 (Space)</param>
+                </condition>
+                <condition id="-15" name="Pick nearest/furthest" sid="3880151930018635" type="Sprite2">
+                    <param id="0" name="Which">0</param>
+                    <param id="1" name="X">Player111.X</param>
+                    <param id="2" name="Y">Player111.Y</param>
+                </condition>
+                <condition id="-1" name="Compare X" sid="2827381631703455" type="Player111">
+                    <param id="0" name="Comparison">2</param>
+                    <param id="1" name="X co-ordinate">Sprite2.X</param>
+                </condition>
+                <condition id="-1" name="Compare X" sid="4662637833832988" type="Player111">
+                    <param id="0" name="Comparison">5</param>
+                    <param id="1" name="X co-ordinate">Sprite2.X - (1.5 * Sprite2.Width)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="3833621461153644" type="Sprite2">
+                    <param id="0" name="X">Player111.X + Self.Width</param>
+                    <param id="1" name="Y">Player111.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6388990362312096">
+            <conditions>
+                <condition id="2" name="Key is down" sid="9672503670217568" type="Keyboard">
+                    <param id="0" name="Key">32 (Space)</param>
+                </condition>
+                <condition id="-15" name="Pick nearest/furthest" sid="7545161957939719" type="Sprite2">
+                    <param id="0" name="Which">0</param>
+                    <param id="1" name="X">Player111.X</param>
+                    <param id="2" name="Y">Player111.Y</param>
+                </condition>
+                <condition id="-1" name="Compare X" sid="2188896607992837" type="Player111">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="X co-ordinate">Sprite2.X</param>
+                </condition>
+                <condition id="-1" name="Compare X" sid="7080612709443991" type="Player111">
+                    <param id="0" name="Comparison">3</param>
+                    <param id="1" name="X co-ordinate">Sprite2.X + (1.5 * Sprite2.Width)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="6194495327645325" type="Sprite2">
+                    <param id="0" name="X">Player111.X - Self.Width</param>
+                    <param id="1" name="Y">Player111.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1858796945576427">
+            <conditions>
+                <condition id="2" name="Key is down" sid="9732583302034482" type="Keyboard">
+                    <param id="0" name="Key">68 (D)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="7" name="Simulate control" sid="6019586362352605" type="Player111">
+                    <param id="0" name="Control">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7283867607429844">
+            <conditions>
+                <condition id="2" name="Key is down" sid="9776489764005751" type="Keyboard">
+                    <param id="0" name="Key">65 (A)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="7" name="Simulate control" sid="1465536675331068" type="Player111">
+                    <param id="0" name="Control">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3310838818390424">
+            <conditions>
+                <condition id="2" name="Key is down" sid="7538084047378624" type="Keyboard">
+                    <param id="0" name="Key">87 (W)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="7" name="Simulate control" sid="4648621430338681" type="Player111">
+                    <param id="0" name="Control">2</param>
+                </action>
+                <action id="7" name="Play (by name)" sid="6384476361182686" type="Audio">
+                    <param id="0" name="Folder">0</param>
+                    <param id="1" name="Audio file name">&quot;Jump&quot;</param>
+                    <param id="3" name="Loop">0</param>
+                    <param id="4" name="Volume">0</param>
+                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6540093321506332">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="5356803062447604" type="Keyboard">
+                    <param id="0" name="Key">88 (X)</param>
+                </condition>
+                <condition id="-8" name="Is boolean instance variable set" sid="4006448859862678" type="Player111">
+                    <param id="0" name="Instance variable">hasTeddy</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="438693861147956" type="System">
+                    <param id="0" name="Object to create">Teddy</param>
+                    <param id="1" name="Layer">2</param>
+                    <param id="2" name="X">Player111.X</param>
+                    <param id="3" name="Y">Player111.Y + Player111.Height/3</param>
+                </action>
+                <action id="-13" name="Set boolean" sid="4390568572970398" type="Player111">
+                    <param id="0" name="Instance variable">hasTeddy</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1557666098649743">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="6846227957009525" type="Keyboard">
+                    <param id="0" name="Key">88 (X)</param>
+                </condition>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="6766283857516198" type="Player111">
+                    <param id="0" name="Instance variable">hasTeddy</param>
+                </condition>
+                <condition id="1" inverted="1" name="Is overlapping another object" sid="3953580432499307" type="Player111">
+                    <param id="0" name="Object">Teddy</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="4553170160798666" type="Player111">
+                    <param id="0" name="X">Teddy.X</param>
+                    <param id="1" name="Y">Teddy.Y</param>
+                </action>
+                <action id="-9" name="Destroy" sid="4929559907876913" type="Teddy" />
+                <action id="-13" name="Set boolean" sid="2912712212120585" type="Player111">
+                    <param id="0" name="Instance variable">hasTeddy</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="5882163961159449" title="Animations">
+            <sub-events>
+                <event-block sid="2952298593040766">
+                    <conditions>
+                        <condition behavior="Platform" id="2" name="Is on floor" sid="8326383487920943" type="Player111" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="8190546932753655">
+                            <conditions>
+                                <condition behavior="Platform" id="0" name="Is moving" sid="282127343931123" type="Player111" />
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="6878106269478228" type="Player111">
+                                    <param id="0" name="Animation">&quot;Run&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="7891267590385146">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="2430166198446336" type="System" />
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block any="1" sid="9419697105899031">
+                                    <conditions>
+                                        <condition id="2" name="Key is down" sid="7482936929307102" type="Keyboard">
+                                            <param id="0" name="Key">39 (Right arrow)</param>
+                                        </condition>
+                                        <condition id="2" name="Key is down" sid="452330851977502" type="Keyboard">
+                                            <param id="0" name="Key">37 (Left arrow)</param>
+                                        </condition>
+                                        <condition id="2" name="Key is down" sid="5235889700533603" type="Keyboard">
+                                            <param id="0" name="Key">65 (A)</param>
+                                        </condition>
+                                        <condition id="2" name="Key is down" sid="866077992536875" type="Keyboard">
+                                            <param id="0" name="Key">68 (D)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="8111847266497261" type="Player111">
+                                            <param id="0" name="Animation">&quot;Push&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="8517941872663858">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="8432870937485978" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="9629501738744299" type="Player111">
+                                            <param id="0" name="Animation">&quot;Idle&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block any="1" sid="4023330402730134">
+                    <conditions>
+                        <condition behavior="Platform" id="5" name="On jump" sid="8308939954549509" type="Player111" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="1495520457721123" type="Player111">
+                            <param id="0" name="Animation">&quot;Jump&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1808435369758583">
+                    <conditions>
+                        <condition behavior="Platform" id="6" name="On fall" sid="5584942613357394" type="Player111" />
+                        <condition behavior="Platform" id="3" name="Is jumping" sid="3250919422031469" type="Player111" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="9113380099068587" type="Player111">
+                            <param id="0" name="Animation">&quot;Jump&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1353306647296914">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="5899696387092645" type="System">
+                            <param id="0" name="First value">Player111.Platform.VectorX</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Second value">-0.1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="7" name="Set mirrored" sid="6205255247129378" type="Player111">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9699434997323371">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="7494669291711532" type="System">
+                            <param id="0" name="First value">Player111.Platform.VectorX</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">0.1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="7" name="Set mirrored" sid="3240615166503657" type="Player111">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="8486801037438146">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="5445585715414135" type="Player111">
+                    <param id="0" name="Object">LavaBlocks</param>
+                </condition>
+                <condition id="-4" name="Trigger once while true" sid="9227380198949506" type="System" />
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="6651694926633634" type="Player111">
+                    <param id="0" name="Animation">&quot;Death&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action disabled="1" id="-16" name="Wait" sid="5595478708992171" type="System">
+                    <param id="0" name="Seconds">1.0</param>
+                </action>
+                <action id="-9" name="Set value" sid="7738127134520759" type="System">
+                    <param id="0" name="Variable">level</param>
+                    <param id="1" name="Value">LayoutName</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="9103353468272894" type="System">
+                    <param id="0" name="Layout">Death</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3795091463256485">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="6517466826978448" type="Player111">
+                    <param id="0" name="Object">Spikes</param>
+                </condition>
+                <condition id="-4" name="Trigger once while true" sid="3733331822370701" type="System" />
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="7823800619616544" type="Player111">
+                    <param id="0" name="Animation">&quot;Death&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action disabled="1" id="-16" name="Wait" sid="1996428449906749" type="System">
+                    <param id="0" name="Seconds">1.0</param>
+                </action>
+                <action id="-9" name="Set value" sid="3291547266027431" type="System">
+                    <param id="0" name="Variable">level</param>
+                    <param id="1" name="Value">LayoutName</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="5254717931177869" type="System">
+                    <param id="0" name="Layout">Death</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block disabled="1" sid="9975962375794388">
+            <conditions>
+                <condition id="-2" name="Compare Y" sid="2809033673975255" type="Player111">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="Y co-ordinate">450</param>
+                </condition>
+                <condition id="-4" name="Trigger once while true" sid="783910496288464" type="System" />
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="117597396769224" type="Player111">
+                    <param id="0" name="Animation">&quot;Death&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="4627792120160448" type="System">
+                    <param id="0" name="Seconds">1.0</param>
+                </action>
+                <action id="-9" name="Set value" sid="1769829014123869" type="System">
+                    <param id="0" name="Variable">level</param>
+                    <param id="1" name="Value">LayoutName</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="9327036528644532" type="System">
+                    <param id="0" name="Layout">Death</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

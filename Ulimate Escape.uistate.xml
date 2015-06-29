@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2uistate>
+    <!--This is a UI state file - its content describes the user interface settings when the project was last open.
+It is entirely optional and the project will load without it.  If you are placing the project under source control,
+you probably do not want to add any .uistate.xml files to the repository.-->
+    <configurations>
+        <active>
+            <configuration name="HTML5" />
+        </active>
+        <display name="HTML5" />
+    </configurations>
+    <open-tabs>
+        <layout order="0">main_game</layout>
+        <layout order="1">menu</layout>
+        <layout order="7">menu_tryout</layout>
+        <layout active="1" order="9">level_3</layout>
+        <layout order="12">Death</layout>
+        <layout order="15">level_select</layout>
+        <layout order="17">ep_1</layout>
+        <layout order="18">ep__2</layout>
+        <layout order="23">sp_1</layout>
+        <layout order="28">Story</layout>
+        <layout order="29">Layout 1</layout>
+        <event-sheet order="2">main_menu</event-sheet>
+        <event-sheet order="3">Main</event-sheet>
+        <event-sheet order="4">fade_transition</event-sheet>
+        <event-sheet order="5">boss_main</event-sheet>
+        <event-sheet order="6">close_combat</event-sheet>
+        <event-sheet order="8">Event sheet 1</event-sheet>
+        <event-sheet order="10">player111constrols</event-sheet>
+        <event-sheet order="11">level3 sheet</event-sheet>
+        <event-sheet order="13">Death Events</event-sheet>
+        <event-sheet order="14">Puzzlepeices</event-sheet>
+        <event-sheet order="16">level__select</event-sheet>
+        <event-sheet order="19">ep__2</event-sheet>
+        <event-sheet order="20">ep__1</event-sheet>
+        <event-sheet order="21">bullet_interactions</event-sheet>
+        <event-sheet order="22">sp_1</event-sheet>
+        <event-sheet order="24">laser_turret</event-sheet>
+        <event-sheet order="25">high_scores</event-sheet>
+        <event-sheet order="26">laset_top_vertical</event-sheet>
+        <event-sheet order="27">misc</event-sheet>
+        <event-sheet order="30">Story</event-sheet>
+    </open-tabs>
+    <properties>
+        <property expanded="1" name="About" />
+        <property expanded="1" name="Project settings" />
+        <property expanded="0" name="Window Size" />
+        <property expanded="1" name="Configuration Settings" />
+    </properties>
+    <families-expanded root="0">
+        <family expanded="1" name="sfx_bulled_collision" />
+        <family expanded="0" name="bullet_target" />
+        <family expanded="0" name="vertical_spawn_points" />
+        <family expanded="1" name="projectiles_simple" />
+        <family expanded="1" name="powerups_family" />
+        <family expanded="0" name="Family1" />
+    </families-expanded>
+    <folders-expanded>
+        <folder expanded="0" path="object-folder/" />
+        <folder expanded="1" path="layout-folder/" />
+        <folder expanded="1" path="event-folder/" />
+        <folder expanded="1" path="file-folder/" />
+        <folder expanded="1" path="sound-folder/" />
+        <folder expanded="0" path="music-folder/" />
+        <folder expanded="0" path="file-folder/Icons/" />
+        <folder expanded="1" path="animation-folder/center_screen/" />
+        <folder expanded="1" path="animation-folder/Player/" />
+        <folder expanded="1" path="animation-folder/Sprite2/" />
+        <folder expanded="1" path="animation-folder/Sprite/" />
+        <folder expanded="1" path="animation-folder/enemie/" />
+        <folder expanded="1" path="animation-folder/move_target/" />
+        <folder expanded="1" path="animation-folder/simple_bullet_01/" />
+        <folder expanded="1" path="animation-folder/targeter/" />
+        <folder expanded="1" path="animation-folder/Sprite3/" />
+        <folder expanded="1" path="animation-folder/particle_explode/" />
+        <folder expanded="1" path="animation-folder/Sprite4/" />
+        <folder expanded="1" path="animation-folder/monster_body/" />
+        <folder expanded="1" path="animation-folder/Sprite5/" />
+        <folder expanded="1" path="animation-folder/Sprite6/" />
+        <folder expanded="1" path="animation-folder/laser_light/" />
+        <folder expanded="1" path="animation-folder/lasor_test/" />
+        <folder expanded="1" path="animation-folder/Sprite7/" />
+        <folder expanded="1" path="animation-folder/turret_top/" />
+        <folder expanded="1" path="animation-folder/Sprite8/" />
+        <folder expanded="1" path="animation-folder/Sprite9/" />
+        <folder expanded="1" path="animation-folder/lasers_top_down/" />
+        <folder expanded="1" path="animation-folder/spawn_point_vertical_top/" />
+        <folder expanded="1" path="animation-folder/excl_point/" />
+        <folder expanded="1" path="animation-folder/Sprite10/" />
+        <folder expanded="1" path="animation-folder/firearm_pickup/" />
+        <folder expanded="1" path="animation-folder/weapon/" />
+        <folder expanded="1" path="animation-folder/rocket_simple/" />
+        <folder expanded="1" path="animation-folder/rocket_weapon/" />
+        <folder expanded="1" path="animation-folder/barrel_rocket/" />
+        <folder expanded="1" path="animation-folder/splatter_object/" />
+        <folder expanded="1" path="animation-folder/explosion_sprite/" />
+        <folder expanded="1" path="animation-folder/firearm_pickup2/" />
+        <folder expanded="1" path="animation-folder/hand/" />
+        <folder expanded="1" path="animation-folder/tail/" />
+        <folder expanded="1" path="animation-folder/Sprite11/" />
+        <folder expanded="1" path="animation-folder/duck_powerdown/" />
+        <folder expanded="1" path="animation-folder/motion_woosh/" />
+        <folder expanded="1" path="animation-folder/endgame_banner/" />
+        <folder expanded="1" path="animation-folder/duck_powerdown2/" />
+        <folder expanded="1" path="animation-folder/Sprite12/" />
+        <folder expanded="1" path="animation-folder/Sprite13/" />
+        <folder expanded="1" path="animation-folder/spawn_box_throw/" />
+        <folder expanded="1" path="animation-folder/Sprite14/" />
+        <folder expanded="1" path="animation-folder/Sprite15/" />
+        <folder expanded="1" path="animation-folder/Sprite16/" />
+        <folder expanded="1" path="animation-folder/alternate_dood/" />
+        <folder expanded="1" path="animation-folder/move_target2/" />
+        <folder expanded="1" path="animation-folder/start/" />
+        <folder expanded="1" path="animation-folder/backgroundCopy/" />
+        <folder expanded="1" path="animation-folder/Coll/" />
+        <folder expanded="1" path="animation-folder/BATTLE/" />
+        <folder expanded="1" path="animation-folder/Camera/" />
+        <folder expanded="1" path="animation-folder/Player111/" />
+        <folder expanded="1" path="animation-folder/Player1/" />
+        <folder expanded="1" path="animation-folder/Player2/" />
+        <folder expanded="1" path="animation-folder/Play2Sprite/" />
+        <folder expanded="1" path="animation-folder/Sprite17/" />
+        <folder expanded="1" path="animation-folder/blue_sliderLeft/" />
+        <folder expanded="1" path="animation-folder/blue_sliderRight/" />
+        <folder expanded="1" path="animation-folder/blue_sliderUp/" />
+        <folder expanded="1" path="animation-folder/CastleBground/" />
+        <folder expanded="1" path="animation-folder/BuildingBlocks/" />
+        <folder expanded="1" path="animation-folder/Goal/" />
+        <folder expanded="1" path="animation-folder/Door/" />
+        <folder expanded="1" path="animation-folder/LavaBlocks/" />
+        <folder expanded="1" path="animation-folder/MobileBlock/" />
+        <folder expanded="1" path="animation-folder/PressurePlateTemp/" />
+        <folder expanded="1" path="animation-folder/Lever/" />
+        <folder expanded="1" path="animation-folder/PressurePlatePerma/" />
+        <folder expanded="1" path="animation-folder/Spikes/" />
+        <folder expanded="1" path="animation-folder/StoneSprite/" />
+        <folder expanded="1" path="animation-folder/fallingBlocks/" />
+        <folder expanded="1" path="animation-folder/ArchBack/" />
+        <folder expanded="1" path="animation-folder/ArchFront/" />
+        <folder expanded="1" path="animation-folder/Teddy/" />
+        <folder expanded="1" path="animation-folder/PressurePlateBox/" />
+        <folder expanded="1" path="animation-folder/Portal/" />
+        <folder expanded="1" path="animation-folder/Sprite18/" />
+        <folder expanded="1" path="animation-folder/Sprite19/" />
+        <folder expanded="1" path="animation-folder/Sprite20/" />
+        <folder expanded="1" path="animation-folder/Button/" />
+        <folder expanded="1" path="animation-folder/SplashScreen/" />
+        <folder expanded="1" path="animation-folder/Sprite21/" />
+        <folder expanded="1" path="animation-folder/Sprite22/" />
+        <folder expanded="1" path="animation-folder/Sprite23/" />
+        <folder expanded="1" path="animation-folder/Sprite24/" />
+        <folder expanded="1" path="animation-folder/Sprite25/" />
+        <folder expanded="1" path="animation-folder/Sprite26/" />
+        <folder expanded="1" path="animation-folder/Sprite27/" />
+        <folder expanded="1" path="animation-folder/Sprite28/" />
+        <folder expanded="1" path="animation-folder/Sprite29/" />
+        <folder expanded="1" path="animation-folder/Sprite30/" />
+        <folder expanded="1" path="animation-folder/Sprite31/" />
+        <folder expanded="1" path="animation-folder/Sprite32/" />
+        <folder expanded="1" path="animation-folder/Sprite33/" />
+        <folder expanded="1" path="animation-folder/Sprite34/" />
+        <folder expanded="1" path="animation-folder/Sprite35/" />
+        <folder expanded="1" path="animation-folder/Sprite36/" />
+        <folder expanded="1" path="animation-folder/Sprite37/" />
+        <folder expanded="1" path="animation-folder/Sprite38/" />
+        <folder expanded="1" path="animation-folder/Sprite39/" />
+        <folder expanded="1" path="animation-folder/Sprite40/" />
+        <folder expanded="1" path="animation-folder/Sprite41/" />
+        <folder expanded="1" path="animation-folder/Sprite42/" />
+        <folder expanded="1" path="animation-folder/Sprite43/" />
+        <folder expanded="1" path="animation-folder/Sprite44/" />
+    </folders-expanded>
+</c2uistate>

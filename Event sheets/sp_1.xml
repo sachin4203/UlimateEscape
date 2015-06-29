@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>sp_1</name>
+    <events>
+        <event-block sid="1799585291635176">
+            <conditions>
+                <condition behavior="Fade" id="0" name="On fade-out finished" sid="602605089203317" type="SplashScreen" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="9982297703569616" type="Sprite2" />
+            </actions>
+        </event-block>
+        <event-block any="1" sid="4499497631896622">
+            <conditions>
+                <condition id="1" name="On any click" sid="7741744807572159" type="Mouse" />
+                <condition id="1" name="On any key pressed" sid="8404291902896451" type="Keyboard" />
+                <condition id="0" name="On any touch start" sid="5118957443008299" type="Touch" />
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="7531841810670557" type="System">
+                    <param id="0" name="Layout">menu_tryout</param>
+                </action>
+                <action id="-9" name="Set value" sid="5822630001065434" type="System">
+                    <param id="0" name="Variable">PlayMusic</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1630706013496392">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="8512074085626828" type="System" />
+            </conditions>
+            <actions>
+                <action disabled="1" id="7" name="Play (by name)" sid="4459347225891769" type="Audio">
+                    <param id="0" name="Folder">0</param>
+                    <param id="1" name="Audio file name">&quot;Mission&quot;</param>
+                    <param id="3" name="Loop">1</param>
+                    <param id="4" name="Volume">0</param>
+                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

@@ -1,0 +1,446 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>laser_turret</name>
+    <events>
+        <variable constant="0" name="turret_disabled" sid="8277253654862274" static="0" type="number">0</variable>
+        <variable constant="0" name="laser_cooldown" sid="1914258429292069" static="0" type="number">0</variable>
+        <event-block disabled="1" sid="5378283944078868">
+            <conditions>
+                <condition id="-9" name="Is visible" sid="5125762860356079" type="enemie" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block disabled="1" sid="8178310609865083">
+                    <conditions>
+                        <condition id="2" name="Is playing" sid="4449675573797596" type="enemie">
+                            <param id="0" name="Animation">&quot;red_eye&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="5472961732523614" type="laser_light">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block disabled="1" sid="1336663435748406">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="3119481496702759" type="System">
+                            <param id="0" name="First value">distance(Player.X,Player.Y,enemie.X,enemie.Y)</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Second value">300</param>
+                        </condition>
+                        <condition id="2" name="Is playing" sid="4280213115921384" type="laser_light">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="6941668000858446" type="System">
+                            <param id="0" name="Variable">laser_cooldown</param>
+                            <param id="1" name="Value">laser_cooldown-dt*50</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block disabled="1" sid="8871697370867063">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="2853234893072748" type="System" />
+                        <condition id="2" name="Is playing" sid="925677710540658" type="laser_light">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="8176503630547803" type="System">
+                            <param id="0" name="Variable">laser_cooldown</param>
+                            <param id="1" name="Value">100</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block disabled="1" sid="3437617576107029">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="2679354452469253" type="System">
+                            <param id="0" name="First value">distance(Player.X,Player.Y,enemie.X,enemie.Y)</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">300</param>
+                        </condition>
+                        <condition id="2" name="Is playing" sid="9141372243840942" type="laser_light">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="9421243855198472" type="System">
+                            <param id="0" name="Variable">laser_cooldown</param>
+                            <param id="1" name="Value">100</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="1554717030866227" type="laser_light">
+                            <param id="0" name="Opacity">10</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block disabled="1" sid="997050015580774">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="7882248782272653" type="System">
+                            <param id="0" name="Variable">laser_cooldown</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">50</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Set opacity" sid="2972819037764157" type="laser_light">
+                            <param id="0" name="Opacity">100</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block disabled="1" sid="3374009882371054">
+                    <conditions>
+                        <condition id="2" name="Is playing" sid="3694055619115002" type="laser_light">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="4812147791224367" type="System">
+                            <param id="0" name="Variable">laser_cooldown</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="5899361990170465" type="laser_light">
+                            <param id="0" name="Animation">&quot;lasor_charge&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="8276443596014082">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="401791969867015" type="System">
+                    <param id="0" name="Variable">turret_disabled</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="8806060916094107" type="System">
+                    <param id="0" name="Variable">laser_cooldown</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Turret" id="5" name="Set enabled" sid="7722723714735083" type="turret_top">
+                    <param id="0" name="State">1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="7392575657420315">
+                    <conditions>
+                        <condition id="2" name="Is playing" sid="6155310039100408" type="laser_light">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="3527000228895825" type="System">
+                            <param id="0" name="Variable">last_movement_time</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">4</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="821328910824288" type="laser_light">
+                            <param id="0" name="Animation">&quot;lasor_charge&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="7588720836322336" type="laser_light">
+                            <param id="0" name="Opacity">100</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3030113784719997">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="7814855489712538" type="System" />
+                        <condition id="-14" name="Compare variable" sid="4387991975866144" type="System">
+                            <param id="0" name="Variable">last_movement_time</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Set opacity" sid="6167251904607896" type="laser_light">
+                            <param id="0" name="Opacity">100</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6388428005498238">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="3499349453997885" type="System" />
+                        <condition id="-14" name="Compare variable" sid="198952697231043" type="System">
+                            <param id="0" name="Variable">last_movement_time</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                        <condition id="2" name="Is playing" sid="9170379015970828" type="laser_light">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Set opacity" sid="111395534764345" type="laser_light">
+                            <param id="0" name="Opacity">20</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="5390965347786745">
+            <conditions>
+                <condition id="-22" name="Else" sid="3076424808731426" type="System" />
+                <condition id="-14" name="Compare variable" sid="9833981408067468" type="System">
+                    <param id="0" name="Variable">turret_disabled</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="5822184218606136" type="System">
+                    <param id="0" name="Variable">turret_disabled</param>
+                    <param id="1" name="Value">2</param>
+                </action>
+                <action id="-16" name="Wait" sid="3498425329807163" type="System">
+                    <param id="0" name="Seconds">1.0</param>
+                </action>
+                <action id="-9" name="Set value" sid="7987962369903926" type="System">
+                    <param id="0" name="Variable">turret_disabled</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="9914546537895206">
+            <conditions>
+                <condition id="-22" name="Else" sid="845995218436812" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="Turret" id="5" name="Set enabled" sid="3260315643440827" type="turret_top">
+                    <param id="0" name="State">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="559696176719852">
+            <conditions>
+                <condition id="4" name="On finished" sid="7224270282352861" type="laser_light">
+                    <param id="0" name="Animation">&quot;lasor_charge&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="3449209232408632" type="laser_light">
+                    <param id="0" name="Animation">&quot;lasor_attack&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action behavior="Turret" id="5" name="Set enabled" sid="5293867680573918" type="turret_top">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="8406649663566526" type="System">
+                    <param id="0" name="Variable">turret_disabled</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8196419704186154">
+            <conditions>
+                <condition id="4" name="On finished" sid="8446919716030983" type="laser_light">
+                    <param id="0" name="Animation">&quot;lasor_attack&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="3354796830656106" type="laser_light">
+                    <param id="0" name="Animation">&quot;lasor_end&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8596051976433988">
+            <conditions>
+                <condition id="4" name="On finished" sid="5962376572329268" type="laser_light">
+                    <param id="0" name="Animation">&quot;lasor_end&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="2703665749281758" type="System">
+                    <param id="0" name="Variable">laser_cooldown</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="9336510943517202">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="9831184439504885" type="System">
+                            <param id="0" name="Variable">turret_disabled</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Wait" sid="8767359103088057" type="System">
+                            <param id="0" name="Seconds">0.5</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="4121870633709893" type="laser_light">
+                            <param id="0" name="Opacity">10</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="7804350275338838" type="laser_light">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action behavior="Turret" id="5" name="Set enabled" sid="1661584937230508" type="turret_top">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5956331823925281">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="2877406351254244" type="System" />
+                        <condition id="-14" name="Compare variable" sid="4255899515773533" type="System">
+                            <param id="0" name="Variable">turret_disabled</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Set opacity" sid="1323198984203579" type="laser_light">
+                            <param id="0" name="Opacity">10</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="2855903231433468" type="laser_light">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4564816816075464">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="2015673573711517" type="System" />
+                        <condition id="-14" name="Compare variable" sid="7896848002874739" type="System">
+                            <param id="0" name="Variable">turret_disabled</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Set opacity" sid="411814224418923" type="laser_light">
+                            <param id="0" name="Opacity">10</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="8518779597169116" type="laser_light">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="7805688060651556">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="6381434749061191" type="projectiles_simple">
+                    <param id="0" name="Object">turret_top</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="9796757370897931" type="projectiles_simple" />
+                <action id="-9" name="Set value" sid="438127188592025" type="System">
+                    <param id="0" name="Variable">laser_cooldown</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5860201251308807">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="2044135587422147" type="rocket_simple">
+                    <param id="0" name="Object">turret_top</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="6892512442142119" type="rocket_simple" />
+                <action id="-9" name="Set value" sid="3375520941865825" type="System">
+                    <param id="0" name="Variable">laser_cooldown</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2153763000373827">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="6993426152362197" type="powerups_family">
+                    <param id="0" name="Object">Player</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-34" name="Set layer background color" sid="9009322303062783" type="System">
+                    <param id="0" name="Layer">5</param>
+                    <param id="1" name="Color">rgb(255, 255, 255)</param>
+                </action>
+                <action id="-12" name="Set group active" sid="786347588341023" type="System">
+                    <param id="0" name="Group name">&quot;Fade_in&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+                <action id="-12" name="Set group active" sid="9864244585727292" type="System">
+                    <param id="0" name="Group name">&quot;Fade_out&quot;</param>
+                    <param id="1" name="State">0</param>
+                </action>
+                <action id="-18" name="Set layer opacity" sid="3592002017439581" type="System">
+                    <param id="0" name="Layer">5</param>
+                    <param id="1" name="Opacity">50</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4675888112101349">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="4462786064762255" type="System">
+                    <param id="0" name="Variable">turret_disabled</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="2" inverted="1" name="Is playing" sid="4398024757156466" type="turret_top">
+                    <param id="0" name="Animation">&quot;cooldown&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="4990514871839908" type="turret_top">
+                    <param id="0" name="Animation">&quot;cooldown&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2556504807049655">
+            <conditions>
+                <condition id="-22" name="Else" sid="2369872492778473" type="System" />
+                <condition id="-14" name="Compare variable" sid="7533896507671145" type="System">
+                    <param id="0" name="Variable">laser_cooldown</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="2" inverted="1" name="Is playing" sid="9334025920977358" type="turret_top">
+                    <param id="0" name="Animation">&quot;cooldown&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="6793329919556908" type="turret_top">
+                    <param id="0" name="Animation">&quot;cooldown&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7876516555279196">
+            <conditions>
+                <condition id="-22" name="Else" sid="1899567523622056" type="System" />
+                <condition id="-14" name="Compare variable" sid="7415275058391723" type="System">
+                    <param id="0" name="Variable">laser_cooldown</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-14" inverted="1" name="Compare variable" sid="3723841436170143" type="System">
+                    <param id="0" name="Variable">turret_disabled</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="2" inverted="1" name="Is playing" sid="1143862774600062" type="turret_top">
+                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="6099643551511424" type="turret_top">
+                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

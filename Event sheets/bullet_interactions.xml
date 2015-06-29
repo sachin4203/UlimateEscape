@@ -1,0 +1,739 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>bullet_interactions</name>
+    <events>
+        <variable constant="0" name="fire_rate" sid="3677061759287203" static="0" type="number">0.05</variable>
+        <variable constant="0" name="bullet_dmg" sid="7406173042702708" static="0" type="number">10</variable>
+        <variable constant="0" name="bullet_active_type" sid="8714515984729407" static="0" type="number">1</variable>
+        <event-block sid="4856931588258025">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="1556381238541327" type="System">
+                    <param id="0" name="Variable">bullet_active_type</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="839480211091061" type="System">
+                    <param id="0" name="Variable">fire_rate</param>
+                    <param id="1" name="Value">0.05</param>
+                </action>
+                <action id="-9" name="Set value" sid="5240869341495312" type="System">
+                    <param id="0" name="Variable">bullet_dmg</param>
+                    <param id="1" name="Value">10</param>
+                </action>
+                <action id="4" name="Set animation" sid="9840102617108676" type="weapon">
+                    <param id="0" name="Animation">&quot;active&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4648460427511893">
+            <conditions>
+                <condition id="-22" name="Else" sid="7295939003699301" type="System" />
+                <condition id="-14" name="Compare variable" sid="9028622871286085" type="System">
+                    <param id="0" name="Variable">bullet_active_type</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="1231508947805944" type="System">
+                    <param id="0" name="Variable">fire_rate</param>
+                    <param id="1" name="Value">0.6</param>
+                </action>
+                <action id="-9" name="Set value" sid="1035922429550463" type="System">
+                    <param id="0" name="Variable">bullet_dmg</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="4" name="Set animation" sid="4532583688120664" type="weapon">
+                    <param id="0" name="Animation">&quot;active&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6665522973917146">
+            <conditions>
+                <condition id="-22" name="Else" sid="8685745498183125" type="System" />
+                <condition id="-14" name="Compare variable" sid="291899788544254" type="System">
+                    <param id="0" name="Variable">bullet_active_type</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="7430289610164344" type="System">
+                    <param id="0" name="Variable">fire_rate</param>
+                    <param id="1" name="Value">0.2</param>
+                </action>
+                <action id="-9" name="Set value" sid="4885136854878594" type="System">
+                    <param id="0" name="Variable">bullet_dmg</param>
+                    <param id="1" name="Value">30</param>
+                </action>
+                <action id="4" name="Set animation" sid="9713900320135627" type="weapon">
+                    <param id="0" name="Animation">&quot;active&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5709394407650568">
+            <conditions>
+                <condition id="-22" name="Else" sid="92362732800041" type="System" />
+                <condition id="-14" name="Compare variable" sid="1550530904292481" type="System">
+                    <param id="0" name="Variable">bullet_active_type</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">3</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="8385520750199696" type="System">
+                    <param id="0" name="Variable">fire_rate</param>
+                    <param id="1" name="Value">0.01</param>
+                </action>
+                <action id="-9" name="Set value" sid="7874468131158844" type="System">
+                    <param id="0" name="Variable">bullet_dmg</param>
+                    <param id="1" name="Value">5</param>
+                </action>
+                <action id="4" name="Set animation" sid="4466881517426068" type="weapon">
+                    <param id="0" name="Animation">&quot;active&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3693020508995325">
+            <conditions>
+                <condition id="2" name="Is in touch" sid="3177278188166087" type="Touch" />
+                <condition id="-14" name="Compare variable" sid="9573052330576359" type="System">
+                    <param id="0" name="Variable">controls_locked</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="9425156527945067" type="System">
+                    <param id="0" name="Variable">can_shoot</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="2046711499684417" type="System">
+                    <param id="0" name="Variable">t</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0.2</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="8583501783194932" type="System">
+                    <param id="0" name="Variable">powerup_bullets</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="ScrollTo" disabled="1" id="0" name="Shake" sid="7288952190476141" type="center_screen">
+                    <param id="0" name="Magnitude">10</param>
+                    <param id="1" name="Duration">fire_rate/2</param>
+                    <param id="2" name="Mode">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="5446770091732336" type="weapon">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="6702619880592961" type="System">
+                    <param id="0" name="Variable">powerup_bullets</param>
+                    <param id="1" name="Value">powerup_bullets-1</param>
+                </action>
+                <action id="0" name="Spawn another object" sid="8694096756058876" type="weapon">
+                    <param id="0" name="Object">barrel_rocket</param>
+                    <param id="1" name="Layer">3</param>
+                    <param id="2" name="Image point">1</param>
+                </action>
+                <action id="-18" name="Rotate clockwise" sid="1746431616787018" type="barrel_rocket">
+                    <param id="0" name="Degrees">angle(weapon.X,weapon.Y,touch.X,touch.Y)-weapon.Angle</param>
+                </action>
+                <action id="-24" name="Move to top" sid="1816297317841768" type="barrel_rocket" />
+                <action id="9" name="Set scale" sid="4532074339644419" type="barrel_rocket">
+                    <param id="0" name="Scale">random(0.5,1.2)</param>
+                </action>
+                <action id="7" name="Play (by name)" sid="2096662359135032" type="Audio">
+                    <param id="0" name="Folder">0</param>
+                    <param id="1" name="Audio file name">&quot;Machine_Gun&quot;</param>
+                    <param id="3" name="Loop">0</param>
+                    <param id="4" name="Volume">0</param>
+                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="4413892897701485">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="9165084447496907" type="System">
+                            <param id="0" name="First value">random(0,100)</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Second value">50</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="8" name="Set flipped" sid="4446917753857163" type="barrel_rocket">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1751358206070928">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="5509768372696018" type="Player">
+                            <param id="0" name="Comparison">3</param>
+                            <param id="1" name="X co-ordinate">Touch.X-Player.Width/2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-1" name="Set X" sid="8829323464643292" type="Player">
+                            <param id="0" name="X">Player.X-10</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3341168428224189">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="3701811601747359" type="System" />
+                        <condition id="-1" name="Compare X" sid="4018048856342013" type="Player">
+                            <param id="0" name="Comparison">3</param>
+                            <param id="1" name="X co-ordinate">Touch.X+Player.Width/2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-1" name="Set X" sid="6679364528443154" type="Player">
+                            <param id="0" name="X">Player.X+10</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6154707218697473">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="8077200465329451" type="Player">
+                            <param id="0" name="Comparison">3</param>
+                            <param id="1" name="X co-ordinate">Touch.Y-Player.Width/2-50</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Set Y" sid="3754970275429512" type="Player">
+                            <param id="0" name="Y">Player.Y-10</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3082305178385094">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="9702616042277522" type="System" />
+                        <condition id="-1" name="Compare X" sid="1913727219336815" type="Player">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="X co-ordinate">Touch.Y+Player.Width/2+50</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Set Y" sid="4885144698532269" type="Player">
+                            <param id="0" name="Y">Player.Y+10</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5672168678766204">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="1441082714098095" type="System">
+                            <param id="0" name="First value">bullet_active_type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="7255169125490578" type="weapon">
+                            <param id="0" name="Object">simple_bullet_01</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">1</param>
+                        </action>
+                        <action id="-18" name="Rotate clockwise" sid="1682112946241695" type="simple_bullet_01">
+                            <param id="0" name="Degrees">angle(weapon.X,weapon.Y,touch.X,touch.Y)+random(-10,10)-weapon.Angle</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="307366917757399" type="System">
+                            <param id="0" name="Variable">can_shoot</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="8649518267703301" type="System">
+                            <param id="0" name="Seconds">fire_rate</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="1504906665231055" type="System">
+                            <param id="0" name="Variable">can_shoot</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="4559691691850492">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="4784814296198737" type="System">
+                                    <param id="0" name="First value">random(0,100)</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Second value">10</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-18" name="Set layer opacity" sid="7114589829045439" type="System">
+                                    <param id="0" name="Layer">5</param>
+                                    <param id="1" name="Opacity">50</param>
+                                </action>
+                                <action id="-34" name="Set layer background color" sid="8739090347993672" type="System">
+                                    <param id="0" name="Layer">5</param>
+                                    <param id="1" name="Color">rgb(255, 255, 255)</param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="9328388538381638" type="System">
+                                    <param id="0" name="Group name">&quot;Fade_in&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="2034213710253872" type="System">
+                                    <param id="0" name="Group name">&quot;Fade_out&quot;</param>
+                                    <param id="1" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="8146309217177235">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="5019011143581379" type="System" />
+                        <condition id="-8" name="Compare two values" sid="9995295050974041" type="System">
+                            <param id="0" name="First value">bullet_active_type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-8" name="Set angle" sid="1142787429935" type="weapon">
+                            <param id="0" name="Angle">angle(player.X,player.Y,touch.X,touch.Y)</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="1594269774349043" type="weapon">
+                            <param id="0" name="Object">Sprite10</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">1</param>
+                        </action>
+                        <action id="-18" name="Rotate clockwise" sid="5658425865234952" type="Sprite10">
+                            <param id="0" name="Degrees">angle(weapon.X,weapon.Y,touch.X,touch.Y)+random(-5,5)-weapon.Angle</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="8272506299049706" type="System">
+                            <param id="0" name="Variable">can_shoot</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="1135895459835652" type="System">
+                            <param id="0" name="Seconds">fire_rate</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="443282062470022" type="System">
+                            <param id="0" name="Variable">can_shoot</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9691597896834863">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="1843345769032445" type="System" />
+                        <condition id="-8" name="Compare two values" sid="6940932013361433" type="System">
+                            <param id="0" name="First value">bullet_active_type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-8" name="Set angle" sid="7465579074318" type="weapon">
+                            <param id="0" name="Angle">angle(player.X,player.Y,touch.X,touch.Y)</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="2208716491113143" type="weapon">
+                            <param id="0" name="Object">rocket_simple</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">1</param>
+                        </action>
+                        <action id="-18" name="Rotate clockwise" sid="5525903383542877" type="rocket_simple">
+                            <param id="0" name="Degrees">angle(weapon.X,weapon.Y,touch.X,touch.Y)+random(0,0)-weapon.Angle</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="5097631512819375" type="System">
+                            <param id="0" name="Variable">can_shoot</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="7891633648511432" type="System">
+                            <param id="0" name="Seconds">fire_rate</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="6854773343005401" type="System">
+                            <param id="0" name="Variable">can_shoot</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="9667938472058483">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="8169070673703312" type="System">
+                                    <param id="0" name="First value">random(0,100)</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Second value">70</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-18" name="Set layer opacity" sid="167255126244541" type="System">
+                                    <param id="0" name="Layer">5</param>
+                                    <param id="1" name="Opacity">50</param>
+                                </action>
+                                <action id="-34" name="Set layer background color" sid="3805914147985059" type="System">
+                                    <param id="0" name="Layer">5</param>
+                                    <param id="1" name="Color">rgb(255, 255, 255)</param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="1769995545108438" type="System">
+                                    <param id="0" name="Group name">&quot;Fade_in&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="4755662431947296" type="System">
+                                    <param id="0" name="Group name">&quot;Fade_out&quot;</param>
+                                    <param id="1" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="4894384923583798">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="6942520563758953" type="System">
+                            <param id="0" name="First value">bullet_active_type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="3810625345376243" type="weapon">
+                            <param id="0" name="Object">simple_bullet_01</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">1</param>
+                        </action>
+                        <action id="-18" name="Rotate clockwise" sid="9929250636868741" type="simple_bullet_01">
+                            <param id="0" name="Degrees">angle(weapon.X,weapon.Y,touch.X,touch.Y)+random(0,0)-weapon.Angle</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="1077442182737955" type="System">
+                            <param id="0" name="Variable">can_shoot</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="2531288643215243" type="System">
+                            <param id="0" name="Seconds">fire_rate</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="9458216363468344" type="System">
+                            <param id="0" name="Variable">can_shoot</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="588858017776743">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="2047625823865044" type="System">
+                                    <param id="0" name="First value">random(0,100)</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Second value">10</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-18" name="Set layer opacity" sid="4102869067387549" type="System">
+                                    <param id="0" name="Layer">5</param>
+                                    <param id="1" name="Opacity">50</param>
+                                </action>
+                                <action id="-34" name="Set layer background color" sid="1479284981444252" type="System">
+                                    <param id="0" name="Layer">5</param>
+                                    <param id="1" name="Color">rgb(255, 255, 255)</param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="1423841606795401" type="System">
+                                    <param id="0" name="Group name">&quot;Fade_in&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="2460990721492391" type="System">
+                                    <param id="0" name="Group name">&quot;Fade_out&quot;</param>
+                                    <param id="1" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="2215541775602106">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="4980171725932296" type="projectiles_simple">
+                    <param id="0" name="Object">enemie</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="9481041055327877" type="projectiles_simple" />
+            </actions>
+            <sub-events>
+                <event-block sid="8202563697362653">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="3846982987641276" type="System">
+                            <param id="0" name="First value">random(0,100)</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Second value">5</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="4489018426913693" type="center_screen">
+                            <param id="0" name="Object">splatter_object</param>
+                            <param id="1" name="Layer">3</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-1" name="Set X" sid="2134225104984705" type="splatter_object">
+                            <param id="0" name="X">random(0,LayoutWidth)</param>
+                        </action>
+                        <action id="-2" name="Set Y" sid="5797751762777517" type="splatter_object">
+                            <param id="0" name="Y">random(0,LayoutHeight)</param>
+                        </action>
+                        <action id="9" name="Set scale" sid="5902592653597237" type="splatter_object">
+                            <param id="0" name="Scale">random(0.2,1)</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="5550745032594144" type="splatter_object">
+                            <param id="0" name="Opacity">random(20,100)</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="9444227255611322" type="splatter_object">
+                            <param id="0" name="Animation">&quot;splatter&quot;&amp;floor(random(1,7))</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3553290250319635">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="1052381516545659" type="System">
+                            <param id="0" name="Variable">boss_invincible</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set progress" sid="9403337235065824" type="monster_health">
+                            <param id="0" name="Value">monster_health.Progress-bullet_dmg</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="8383954309250942" type="System">
+                            <param id="0" name="Variable">combo_counter</param>
+                            <param id="1" name="Value">combo_counter+1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="4899913110383328" type="System">
+                            <param id="0" name="Variable">combo_cooldown</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="3" name="Set progress" sid="8133202200217311" type="combo_meter">
+                            <param id="0" name="Value">combo_meter.Maximum</param>
+                        </action>
+                        <action id="-27" name="Set effect enabled" sid="874268159440456" type="enemie">
+                            <param id="0" name="Mode">1</param>
+                            <param id="1" name="Effect">&quot;Sepia&quot;</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="4308267968732609" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="-27" name="Set effect enabled" sid="3197424368267843" type="enemie">
+                            <param id="0" name="Mode">0</param>
+                            <param id="1" name="Effect">&quot;Sepia&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="9427260025021366">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="3173316192796715" type="rocket_simple">
+                    <param id="0" name="Object">enemie</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="3455819936005838" type="rocket_simple" />
+            </actions>
+            <sub-events>
+                <event-block sid="6039547621893182">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="6983855126732712" type="System">
+                            <param id="0" name="Variable">boss_invincible</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set progress" sid="6239925454378098" type="monster_health">
+                            <param id="0" name="Value">monster_health.Progress-bullet_dmg</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="9111836628738513" type="System">
+                            <param id="0" name="Variable">combo_counter</param>
+                            <param id="1" name="Value">combo_counter+1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="4772171577079758" type="System">
+                            <param id="0" name="Variable">combo_cooldown</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="3" name="Set progress" sid="6437800751112845" type="combo_meter">
+                            <param id="0" name="Value">combo_meter.Maximum</param>
+                        </action>
+                        <action id="-27" name="Set effect enabled" sid="153409608583954" type="enemie">
+                            <param id="0" name="Mode">1</param>
+                            <param id="1" name="Effect">&quot;Sepia&quot;</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="7492781640724398" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="-27" name="Set effect enabled" sid="7708247986127172" type="enemie">
+                            <param id="0" name="Mode">0</param>
+                            <param id="1" name="Effect">&quot;Sepia&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9563269830943334">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="7670546655094407" type="System">
+                            <param id="0" name="First value">random(0,100)</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Second value">90</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="8556971732266314" type="center_screen">
+                            <param id="0" name="Object">splatter_object</param>
+                            <param id="1" name="Layer">3</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-1" name="Set X" sid="5377601595175178" type="splatter_object">
+                            <param id="0" name="X">random(0,LayoutWidth)</param>
+                        </action>
+                        <action id="-2" name="Set Y" sid="8881055257655022" type="splatter_object">
+                            <param id="0" name="Y">random(0,LayoutHeight)</param>
+                        </action>
+                        <action id="9" name="Set scale" sid="2734767734091577" type="splatter_object">
+                            <param id="0" name="Scale">random(0.2,1)</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="8657847971428739" type="splatter_object">
+                            <param id="0" name="Opacity">random(20,100)</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="3514687328072484" type="splatter_object">
+                            <param id="0" name="Animation">&quot;splatter&quot;&amp;floor(random(1,7))</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="7233092241738891">
+            <conditions>
+                <condition id="-19" name="On destroyed" sid="9060595544432283" type="projectiles_simple" />
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="2027940343667722" type="projectiles_simple">
+                    <param id="0" name="Object">sfx_bulled_collision</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-18" name="Rotate clockwise" sid="5327492232915255" type="sfx_bulled_collision">
+                    <param id="0" name="Degrees">random(0,340)</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="1676922646269555">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="76483891406834" type="System">
+                            <param id="0" name="Variable">boss_invincible</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="9" name="Set scale" sid="4736628944834726" type="sfx_bulled_collision">
+                            <param id="0" name="Scale">random(0.5,1.5)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5516482514478939">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="9442168838615506" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="9" name="Set scale" sid="5915657380117794" type="sfx_bulled_collision">
+                            <param id="0" name="Scale">random(0.2,0.6)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="8605543513575126">
+            <conditions>
+                <condition id="-19" name="On destroyed" sid="6945831584169436" type="rocket_simple" />
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="8794915584045153" type="rocket_simple">
+                    <param id="0" name="Object">sfx_bulled_collision</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="0" name="Spawn another object" sid="6155279773201795" type="rocket_simple">
+                    <param id="0" name="Object">explosion_sprite</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-18" name="Rotate clockwise" sid="7961164163836881" type="explosion_sprite">
+                    <param id="0" name="Degrees">random(0,340)</param>
+                </action>
+                <action behavior="ScrollTo" id="0" name="Shake" sid="9527033711181177" type="center_screen">
+                    <param id="0" name="Magnitude">20</param>
+                    <param id="1" name="Duration">0.1</param>
+                    <param id="2" name="Mode">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="2604954000691275">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="459113034588754" type="System">
+                            <param id="0" name="Variable">boss_invincible</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="9" name="Set scale" sid="7152151463584942" type="explosion_sprite">
+                            <param id="0" name="Scale">random(0.5,1.5)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5987804586763211">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="9158973988814988" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="9" name="Set scale" sid="5815935825343522" type="explosion_sprite">
+                            <param id="0" name="Scale">random(0.2,0.6)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="8298997310430938">
+            <conditions>
+                <condition id="5" name="On any finished" sid="9230368878760225" type="sfx_bulled_collision" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="727445068186993" type="sfx_bulled_collision" />
+            </actions>
+        </event-block>
+        <event-block sid="6620140286851295">
+            <conditions>
+                <condition id="5" name="On any finished" sid="4084252578189034" type="explosion_sprite" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="1982487562718771" type="explosion_sprite" />
+            </actions>
+        </event-block>
+        <event-block any="1" sid="4008365398309589">
+            <conditions>
+                <condition id="1" name="On any touch end" sid="4388202732187957" type="Touch" />
+                <condition id="-14" name="Compare variable" sid="1684827273888806" type="System">
+                    <param id="0" name="Variable">powerup_bullets</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="547238300069317" type="weapon">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="9926837176247009">
+            <conditions>
+                <condition id="5" name="On any finished" sid="5764828047916427" type="barrel_rocket" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="4102105258334695" type="barrel_rocket" />
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

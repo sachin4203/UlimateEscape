@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>ep__1</name>
+    <events>
+        <event-block any="1" sid="4636500047220803">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="8831582044230065" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">Sprite27</param>
+                </condition>
+                <condition id="3" name="On touched object" sid="815138471712038" type="Touch">
+                    <param id="0" name="Object">Sprite27</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="8056214982956367" type="System">
+                    <param id="0" name="Layout">level_3</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block any="1" sid="5965438009494761">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="7837267488198428" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">Sprite38</param>
+                </condition>
+                <condition id="3" name="On touched object" sid="9296701862671861" type="Touch">
+                    <param id="0" name="Object">Sprite38</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="4704740921086807" type="System">
+                    <param id="0" name="Layout">level_select</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

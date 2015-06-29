@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>swipe_events</name>
+    <events>
+        <comment>Current screen selected and the width of each screen</comment>
+        <variable comment="Screen currently shown" constant="0" name="currentScreen" sid="4042444078883541" static="0" type="number">0</variable>
+        <variable comment="Width of screen" constant="0" name="screenWidth" sid="3744612418433893" static="0" type="number">640</variable>
+        <variable comment="Scrolling speed multiplier" constant="0" name="scrollSpeed" sid="1292592291124319" static="0" type="number">9</variable>
+        <comment>Start and end X positions for the swipe, the length of the stroke and a time variable</comment>
+        <variable comment="Length of stroke" constant="0" name="strokeLength" sid="9969930406114985" static="0" type="number">0</variable>
+        <variable comment="Start position of Touch" constant="0" name="Sx" sid="4880885557565055" static="0" type="number">0</variable>
+        <variable comment="End position of Touch" constant="0" name="Ex" sid="3376686225162224" static="0" type="number">0</variable>
+        <variable comment="Time variable" constant="0" name="t" sid="7896002004807578" static="0" type="number">0</variable>
+        <comment>Limits for swipe movement</comment>
+        <variable comment="Min length to trigger a swipe" constant="0" name="strokeLimit" sid="731510789935147" static="0" type="number">60</variable>
+        <variable comment="Min time to trigger a swipe" constant="0" name="timeLimit" sid="5682222953308558" static="0" type="number">0.1</variable>
+        <event-block sid="2354082398380868">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="6742389764564951" type="System" />
+            </conditions>
+            <actions>
+                <action id="-5" name="Scroll to X" sid="6108515672624846" type="System">
+                    <param id="0" name="X">lerp(ScrollX, screenWidth*currentScreen+screenWidth/2+2*currentScreen, dt*scrollSpeed)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5014214188562127">
+            <conditions>
+                <condition id="2" name="Is in touch" sid="997655959815231" type="Touch" />
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="5728658087881473" type="System">
+                    <param id="0" name="Variable">t</param>
+                    <param id="1" name="Value">dt</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2714427717859651">
+            <conditions>
+                <condition id="0" name="On any touch start" sid="5794237449692815" type="Touch" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="9128067247393888" type="System">
+                    <param id="0" name="Variable">t</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="1473744378418511" type="System">
+                    <param id="0" name="Variable">Sx</param>
+                    <param id="1" name="Value">Touch.X</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7880895753298206">
+            <conditions>
+                <condition id="1" name="On any touch end" sid="7008614670690582" type="Touch" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="4578468348009306" type="System">
+                    <param id="0" name="Variable">Ex</param>
+                    <param id="1" name="Value">Touch.X</param>
+                </action>
+                <action id="-9" name="Set value" sid="1403966630258966" type="System">
+                    <param id="0" name="Variable">strokeLength</param>
+                    <param id="1" name="Value">int(abs(Sx-Ex))</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="5197172210621777">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="4258210158792332" type="System">
+                            <param id="0" name="First value">strokeLength</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">strokeLimit</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="4141218330280302" type="System">
+                            <param id="0" name="Variable">t</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">timeLimit</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="3431934751676351">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="3659346783901475" type="System">
+                                    <param id="0" name="First value">Sx</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">Ex</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="3062821031336278" type="System">
+                                    <param id="0" name="Variable">currentScreen</param>
+                                    <param id="1" name="Value">min(currentScreen+1, (LayoutWidth/640))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6767654222569792">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="3913638799762669" type="System">
+                                    <param id="0" name="First value">Sx</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Second value">Ex</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="4555435478428356" type="System">
+                                    <param id="0" name="Variable">currentScreen</param>
+                                    <param id="1" name="Value">max(0, currentScreen-1)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

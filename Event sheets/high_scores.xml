@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>high_scores</name>
+    <events>
+        <variable constant="0" name="hiScore" sid="6968500051591213" static="0" type="number">0</variable>
+        <event-block sid="3711496698868488">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="7384433103645627" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="5584054715485234">
+                    <conditions>
+                        <condition id="3" name="Local key exists" sid="3354596339165689" type="main_save">
+                            <param id="0" name="Key">&quot;wHighScore&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="2844174052109035" type="System">
+                            <param id="0" name="Variable">hiScore</param>
+                            <param id="1" name="Value">main_save.LocalValue(&quot;wHighScore&quot;)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="6887193358645464" type="System">
+                            <param id="0" name="Variable">highest_score</param>
+                            <param id="1" name="Value">main_save.LocalValue(&quot;wHighScore&quot;)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="5609196074693176">
+                            <conditions>
+                                <condition id="3" name="For each element" sid="8784992522174313" type="arScore">
+                                    <param id="0" name="Axes">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="3026391912729824" type="arScore">
+                                    <param id="0" name="X">0</param>
+                                    <param id="1" name="Value">hiScore</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="3481669048242274">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="8446021870317598" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="5113738119329107">
+                            <conditions>
+                                <condition id="3" name="For each element" sid="4472286770798321" type="arScore">
+                                    <param id="0" name="Axes">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set at X" sid="7152037700425054" type="arScore">
+                                    <param id="0" name="X">0</param>
+                                    <param id="1" name="Value">hiScore</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="5746352808704784">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="1550823855179284" type="System">
+                    <param id="0" name="Variable">hiScore</param>
+                    <param id="1" name="Comparison">2</param>
+                    <param id="2" name="Value">highest_score</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="5760729447333204" type="System">
+                    <param id="0" name="Variable">hiScore</param>
+                    <param id="1" name="Value">highest_score</param>
+                </action>
+                <action id="0" name="Set local value" sid="8840998805447689" type="main_save">
+                    <param id="0" name="Key">&quot;wHighScore&quot;</param>
+                    <param id="1" name="Value">hiScore</param>
+                </action>
+                <action id="-16" name="Wait" sid="1239560176300319" type="System">
+                    <param id="0" name="Seconds">1.0</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

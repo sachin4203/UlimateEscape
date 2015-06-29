@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Puzzlepeices</name>
+    <events>
+        <event-block sid="1317544042192344">
+            <conditions>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="3410722449280071" type="PressurePlatePerma">
+                    <param id="0" name="Instance variable">isPressed</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block any="1" sid="6741184121389854">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="8080165385793202" type="PressurePlatePerma">
+                            <param id="0" name="Object">Teddy</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="6728313233251205" type="PressurePlatePerma">
+                            <param id="0" name="Object">Player111</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="7711293891916776" type="PressurePlatePerma">
+                            <param id="0" name="Object">MobileBlock</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="-3" name="Set position" sid="1815347845865658" type="PressurePlatePerma">
+                            <param id="0" name="X">PressurePlatePerma.X</param>
+                            <param id="1" name="Y">PressurePlatePerma.Y + PressurePlatePerma.Height/2</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="1614572126845967" type="PressurePlatePerma">
+                            <param id="0" name="Instance variable">isPressed</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="919904449380006">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="9602327421923968" type="Keyboard">
+                    <param id="0" name="Key">69 (E)</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" sid="3952331613316733" type="Player111">
+                    <param id="0" name="Object">Lever</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-14" name="Toggle boolean" sid="5603189595185888" type="Lever">
+                    <param id="0" name="Instance variable">isSet</param>
+                </action>
+                <action id="7" name="Play (by name)" sid="3501345019570962" type="Audio">
+                    <param id="0" name="Folder">0</param>
+                    <param id="1" name="Audio file name">&quot;Door&quot;</param>
+                    <param id="3" name="Loop">0</param>
+                    <param id="4" name="Volume">0</param>
+                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1840276510874359">
+            <conditions>
+                <condition id="-8" name="Is boolean instance variable set" sid="5144447906157252" type="Lever">
+                    <param id="0" name="Instance variable">isSet</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Set mirrored" sid="7096633251371079" type="Lever">
+                    <param id="0" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3680201831560102">
+            <conditions>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="4349646946549338" type="Lever">
+                    <param id="0" name="Instance variable">isSet</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Set mirrored" sid="6982642136103093" type="Lever">
+                    <param id="0" name="State">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4517313827220862">
+            <conditions>
+                <condition id="-8" name="Is boolean instance variable set" sid="4865078637129528" type="Door">
+                    <param id="0" name="Instance variable">isOpen</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="497347700505837" type="Door">
+                    <param id="0" name="X">Door.X</param>
+                    <param id="1" name="Y">Door.startingPosition - Door.Height</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8447104514128134">
+            <conditions>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="2374992145983588" type="Door">
+                    <param id="0" name="Instance variable">isOpen</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="8747609453183428" type="Door">
+                    <param id="0" name="X">Door.X</param>
+                    <param id="1" name="Y">Door.startingPosition</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="9267982307700466">
+            <conditions>
+                <condition id="1" inverted="1" name="Is overlapping another object" sid="2033957594459691" type="MobileBlock">
+                    <param id="0" name="Object">PressurePlateBox</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="4304864171243683" type="PressurePlateTemp">
+                    <param id="0" name="Instance variable">isPressed</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7203900702990926">
+            <conditions>
+                <condition id="1" inverted="1" name="Is overlapping another object" sid="3217053530073185" type="Player111">
+                    <param id="0" name="Object">PressurePlateBox</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="5535986740895824" type="PressurePlateTemp">
+                    <param id="0" name="Instance variable">isPressed</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4440186833474149">
+            <conditions>
+                <condition id="1" inverted="1" name="Is overlapping another object" sid="9193902240109368" type="Teddy">
+                    <param id="0" name="Object">PressurePlateBox</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="290207588085133" type="PressurePlateTemp">
+                    <param id="0" name="Instance variable">isPressed</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3486761209894912">
+            <conditions>
+                <condition id="-8" name="Is boolean instance variable set" sid="5717026001427243" type="PressurePlateTemp">
+                    <param id="0" name="Instance variable">isPressed</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action disabled="1" id="-3" name="Set position" sid="3549420668807584" type="PressurePlateTemp">
+                    <param id="0" name="X">PressurePlateTemp.X</param>
+                    <param id="1" name="Y">PressurePlateTemp.startingPosition +90</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="157090935644224">
+            <conditions>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="8702577757631253" type="PressurePlateTemp">
+                    <param id="0" name="Instance variable">isPressed</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action disabled="1" id="-3" name="Set position" sid="2314306102324314" type="PressurePlateTemp">
+                    <param id="0" name="X">PressurePlateTemp.X</param>
+                    <param id="1" name="Y">PressurePlateTemp.startingPosition</param>
+                </action>
+                <action id="5" name="Set frame" sid="7176365854099686" type="PressurePlateTemp">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="9221569390954622">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="1795213159586519" type="Teddy">
+                    <param id="0" name="Object">PressurePlateBox</param>
+                </condition>
+                <condition id="-15" name="Pick nearest/furthest" sid="621568660265728" type="PressurePlateTemp">
+                    <param id="0" name="Which">0</param>
+                    <param id="1" name="X">Player111.X</param>
+                    <param id="2" name="Y">Player111.Y-Player111.Height/2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="1919768037638412" type="PressurePlateTemp">
+                    <param id="0" name="Instance variable">isPressed</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="5" name="Set frame" sid="1732142059965721" type="PressurePlateTemp">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7206378831902603">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="8446325693622688" type="Player111">
+                    <param id="0" name="Object">PressurePlateBox</param>
+                </condition>
+                <condition id="-15" name="Pick nearest/furthest" sid="4148296377408244" type="PressurePlateTemp">
+                    <param id="0" name="Which">0</param>
+                    <param id="1" name="X">Player111.X</param>
+                    <param id="2" name="Y">Player111.Y-Player111.Height/2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="7670501500496539" type="PressurePlateTemp">
+                    <param id="0" name="Instance variable">isPressed</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="5" name="Set frame" sid="5810229959830309" type="PressurePlateTemp">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2576177403583227">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="2591978056121171" type="MobileBlock">
+                    <param id="0" name="Object">PressurePlateBox</param>
+                </condition>
+                <condition id="-15" name="Pick nearest/furthest" sid="75592327510322" type="PressurePlateTemp">
+                    <param id="0" name="Which">0</param>
+                    <param id="1" name="X">Player111.X</param>
+                    <param id="2" name="Y">Player111.Y-Player111.Height/2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="4955720395654315" type="PressurePlateTemp">
+                    <param id="0" name="Instance variable">isPressed</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="5" name="Set frame" sid="9584565485459486" type="PressurePlateTemp">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4243957021853407">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="3925506755918011" type="Teddy">
+                    <param id="0" name="Object">PressurePlateBox</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="1907333332794391" type="PressurePlateTemp">
+                    <param id="0" name="Instance variable">isPressed</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2661286107962556">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="7706778733411804" type="Player111">
+                    <param id="0" name="Object">PressurePlateBox</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="3950773921296092" type="PressurePlateTemp">
+                    <param id="0" name="Instance variable">isPressed</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8354779732184209">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="1152258350716756" type="MobileBlock">
+                    <param id="0" name="Object">PressurePlateBox</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="5149825106346163" type="PressurePlateTemp">
+                    <param id="0" name="Instance variable">isPressed</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
